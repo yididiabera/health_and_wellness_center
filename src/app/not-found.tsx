@@ -41,7 +41,7 @@ export default function NotFound() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.6 }}
           >
-            Sorry, we couldn't find the page you're looking for. It might have been moved, deleted, or you entered the wrong URL.
+            Sorry, we couldn&apos;t find the page you&apos;re looking for. It might have been moved, deleted, or you entered the wrong URL.
           </motion.p>
 
           {/* Action Buttons */}
@@ -52,13 +52,13 @@ export default function NotFound() {
             transition={{ duration: 0.6, delay: 0.8 }}
           >
             <Button asChild size="lg">
-              <Link href="/">
+              <Link href="/" className="flex items-center">
                 <Home className="mr-2 h-5 w-5" />
                 Go Home
               </Link>
             </Button>
             <Button asChild variant="outline" size="lg">
-              <Link href="javascript:history.back()">
+              <Link href="javascript:history.back()" className="flex items-center">
                 <ArrowLeft className="mr-2 h-5 w-5" />
                 Go Back
               </Link>
@@ -76,7 +76,7 @@ export default function NotFound() {
               Need Help?
             </h3>
             <p className="text-gray-600 dark:text-gray-300 text-sm mb-4">
-              If you believe this is an error, please contact us and we'll help you find what you're looking for.
+              If you believe this is an error, please contact us and we&apos;ll help you find what you&apos;re looking for.
             </p>
             <Button asChild variant="ghost" size="sm">
               <Link href="/contact">

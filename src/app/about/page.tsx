@@ -56,46 +56,45 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* Mission & Vision Section */}
-      <section className="py-16 bg-white dark:bg-gray-900">
+      {/* Mission Section */}
+      <section className="py-20 bg-white dark:bg-gray-900">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-            <motion.div
-              initial={{ opacity: 0, x: -20 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.6 }}
-              viewport={{ once: true }}
-            >
-              <h2 className="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white mb-6">
-                Our Mission
-              </h2>
-              <p className="text-lg text-gray-600 dark:text-gray-300 mb-6 leading-relaxed">
-                To empower individuals on their journey to holistic well-being by providing comprehensive, 
-                personalized wellness solutions that nurture the mind, body, and spirit. We believe that 
-                true health comes from addressing all aspects of human experience.
-              </p>
-              <p className="text-lg text-gray-600 dark:text-gray-300 leading-relaxed">
-                Our approach combines traditional wisdom with modern science, creating a unique pathway 
-                to lasting wellness and personal transformation.
-              </p>
-            </motion.div>
+          <motion.div
+            className="max-w-4xl mx-auto text-center"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+            viewport={{ once: true }}
+          >
+            <h2 className="text-4xl md:text-5xl font-bold text-gray-900 dark:text-white mb-8">
+              Our Mission
+            </h2>
+            <p className="text-xl text-gray-600 dark:text-gray-300 leading-relaxed max-w-3xl mx-auto">
+              To empower individuals on their journey to holistic well-being by providing comprehensive, 
+              personalized wellness solutions that nurture the mind, body, and spirit.
+            </p>
+          </motion.div>
+        </div>
+      </section>
 
-            <motion.div
-              className="bg-gray-50 dark:bg-gray-800 p-8 rounded-xl"
-              initial={{ opacity: 0, x: 20 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.6 }}
-              viewport={{ once: true }}
-            >
-              <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-4">
-                Our Vision
-              </h3>
-              <p className="text-gray-600 dark:text-gray-300 leading-relaxed">
-                To create a world where every individual has access to holistic wellness resources and 
-                support, enabling them to live their most vibrant, balanced, and fulfilling lives.
-              </p>
-            </motion.div>
-          </div>
+      {/* Vision Section */}
+      <section className="py-20 bg-gray-50 dark:bg-gray-800">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+          <motion.div
+            className="max-w-4xl mx-auto text-center"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+            viewport={{ once: true }}
+          >
+            <h2 className="text-4xl md:text-5xl font-bold text-gray-900 dark:text-white mb-8">
+              Our Vision
+            </h2>
+            <p className="text-xl text-gray-600 dark:text-gray-300 leading-relaxed max-w-3xl mx-auto">
+              To create a world where every individual has access to holistic wellness resources and 
+              support, enabling them to live their most vibrant, balanced, and fulfilling lives.
+            </p>
+          </motion.div>
         </div>
       </section>
 
@@ -110,7 +109,7 @@ export default function AboutPage() {
               transition={{ duration: 0.6 }}
               viewport={{ once: true }}
             >
-              <h2 className="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white mb-6">
+              <h2 className="text-4xl md:text-5xl font-bold text-gray-900 dark:text-white mb-8">
                 Our Story
               </h2>
               <p className="text-xl text-gray-600 dark:text-gray-300">

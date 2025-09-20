@@ -103,59 +103,36 @@ export default function ServicesPage() {
       </section>
 
       {/* Services Grid */}
-      <section className="py-16 bg-white dark:bg-gray-900">
+      <section className="py-20 bg-white dark:bg-gray-900">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
             {serviceDetails.map((service, index) => (
               <motion.div
                 key={service.id}
-                className="bg-white dark:bg-gray-800 rounded-xl shadow-md hover:shadow-lg transition-all duration-300 overflow-hidden"
+                className="group"
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: index * 0.1 }}
                 viewport={{ once: true }}
-                whileHover={{ scale: 1.02 }}
               >
-                <div className="p-8">
+                <div className="bg-white dark:bg-gray-800 rounded-2xl p-8 shadow-sm hover:shadow-md transition-all duration-300 border border-gray-100 dark:border-gray-700">
                   {/* Header */}
-                  <div className="mb-6">
-                    <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-2">
+                  <div className="mb-8">
+                    <h3 className="text-3xl font-bold text-gray-900 dark:text-white mb-4">
                       {service.title}
                     </h3>
-                    <p className="text-gray-600 dark:text-gray-300 mb-4">
+                    <p className="text-lg text-gray-600 dark:text-gray-300 leading-relaxed">
                       {service.description}
                     </p>
-                    
-                    {/* Rating */}
-                    <div className="flex items-center space-x-2 mb-4">
-                      <div className="flex items-center">
-                        {Array.from({ length: 5 }).map((_, i) => (
-                          <Star
-                            key={i}
-                            className={`h-4 w-4 ${
-                              i < Math.floor(service.rating)
-                                ? "text-yellow-400 fill-current"
-                                : "text-gray-300 dark:text-gray-600"
-                            }`}
-                          />
-                        ))}
-                      </div>
-                      <span className="text-sm text-gray-600 dark:text-gray-400">
-                        {service.rating} ({service.reviews} reviews)
-                      </span>
-                    </div>
                   </div>
 
-                  {/* Features */}
-                  <div className="mb-6">
-                    <h4 className="text-lg font-semibold text-gray-900 dark:text-white mb-3">
-                      What's Included:
-                    </h4>
-                    <ul className="space-y-2">
-                      {service.features.map((feature, featureIndex) => (
-                        <li key={featureIndex} className="flex items-start space-x-2">
-                          <CheckCircle className="h-5 w-5 text-teal-600 dark:text-teal-400 mt-0.5 flex-shrink-0" />
-                          <span className="text-gray-600 dark:text-gray-300 text-sm">
+                  {/* Key Features - Simplified */}
+                  <div className="mb-8">
+                    <ul className="space-y-3">
+                      {service.features.slice(0, 3).map((feature, featureIndex) => (
+                        <li key={featureIndex} className="flex items-start space-x-3">
+                          <CheckCircle className="h-5 w-5 text-teal-600 dark:text-teal-400 mt-1 flex-shrink-0" />
+                          <span className="text-gray-600 dark:text-gray-300">
                             {feature}
                           </span>
                         </li>
@@ -163,28 +140,21 @@ export default function ServicesPage() {
                     </ul>
                   </div>
 
-                  {/* Details */}
-                  <div className="flex items-center justify-between mb-6">
-                    <div className="flex items-center space-x-4 text-sm text-gray-600 dark:text-gray-400">
-                      <div className="flex items-center space-x-1">
-                        <Clock className="h-4 w-4" />
-                        <span>{service.duration}</span>
-                      </div>
-                      <div className="flex items-center space-x-1">
-                        <Users className="h-4 w-4" />
-                        <span>1-on-1</span>
-                      </div>
-                    </div>
-                    <div className="text-lg font-semibold text-teal-600 dark:text-teal-400">
+                  {/* Price & Duration */}
+                  <div className="flex items-center justify-between mb-8">
+                    <div className="text-2xl font-bold text-teal-600 dark:text-teal-400">
                       {service.price}
+                    </div>
+                    <div className="text-gray-500 dark:text-gray-400">
+                      {service.duration}
                     </div>
                   </div>
 
                   {/* CTA Button */}
-                  <Button className="w-full" asChild>
-                    <Link href={`/contact?service=${service.id}`}>
+                  <Button className="w-full" size="lg" asChild>
+                    <Link href={`/contact?service=${service.id}`} className="flex items-center justify-center">
                       Book Consultation
-                      <ArrowRight className="ml-2 h-4 w-4" />
+                      <ArrowRight className="ml-2 h-5 w-5" />
                     </Link>
                   </Button>
                 </div>
@@ -195,7 +165,7 @@ export default function ServicesPage() {
       </section>
 
       {/* Process Section */}
-      <section className="py-16 bg-gray-50 dark:bg-gray-800">
+      <section className="py-20 bg-gray-50 dark:bg-gray-800">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
             className="text-center mb-16"
@@ -204,15 +174,15 @@ export default function ServicesPage() {
             transition={{ duration: 0.6 }}
             viewport={{ once: true }}
           >
-            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white mb-4">
+            <h2 className="text-4xl md:text-5xl font-bold text-gray-900 dark:text-white mb-8">
               How It Works
             </h2>
-            <p className="text-xl text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">
+            <p className="text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto">
               Our simple 3-step process makes it easy to get started on your wellness journey.
             </p>
           </motion.div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
             {[
               {
                 step: "01",
@@ -232,21 +202,21 @@ export default function ServicesPage() {
             ].map((step, index) => (
               <motion.div
                 key={step.step}
-                className="text-center p-6"
+                className="text-center"
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: index * 0.2 }}
                 viewport={{ once: true }}
               >
-                <div className="inline-flex items-center justify-center w-16 h-16 rounded-full bg-teal-100 dark:bg-teal-900 mb-4">
-                  <span className="text-2xl font-bold text-teal-600 dark:text-teal-400">
+                <div className="inline-flex items-center justify-center w-20 h-20 rounded-full bg-teal-100 dark:bg-teal-900 mb-6">
+                  <span className="text-3xl font-bold text-teal-600 dark:text-teal-400">
                     {step.step}
                   </span>
                 </div>
-                <h3 className="text-xl font-semibold text-gray-900 dark:text-white mb-3">
+                <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-4">
                   {step.title}
                 </h3>
-                <p className="text-gray-600 dark:text-gray-300">
+                <p className="text-lg text-gray-600 dark:text-gray-300 leading-relaxed">
                   {step.description}
                 </p>
               </motion.div>

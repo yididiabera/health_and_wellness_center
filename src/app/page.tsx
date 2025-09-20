@@ -117,7 +117,7 @@ export default function HomePage() {
               viewport={{ once: true }}
             >
               <Button asChild size="lg">
-                <Link href="/services">
+                <Link href="/services" className="flex items-center">
                   View All Services
                   <ArrowRight className="ml-2 h-5 w-5" />
                 </Link>

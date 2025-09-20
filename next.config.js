@@ -10,7 +10,11 @@ const nextConfig = {
   },
   typescript: {
     ignoreBuildErrors: true,
-  }
+  },
+  // Performance optimizations
+  compress: true,
+  poweredByHeader: false,
+  generateEtags: false,
 }
 
 module.exports = nextConfig

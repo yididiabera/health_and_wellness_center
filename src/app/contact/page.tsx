@@ -49,7 +49,7 @@ export default function ContactPage() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.2 }}
             >
-              Ready to start your wellness journey? We're here to help you take the first step.
+              Ready to start your wellness journey? We&apos;re here to help you take the first step.
             </motion.p>
           </div>
         </div>
@@ -71,7 +71,7 @@ export default function ContactPage() {
               </h2>
               <p className="text-gray-600 dark:text-gray-300 mb-8">
                 Have questions about our services or ready to book a consultation? 
-                Fill out the form below and we'll get back to you within 24 hours.
+                Fill out the form below and we&apos;ll get back to you within 24 hours.
               </p>
 
               <form onSubmit={handleSubmit} className="space-y-6">
@@ -121,7 +121,7 @@ export default function ContactPage() {
                   />
                 </div>
 
-                <Button type="submit" className="w-full" size="lg">
+                <Button type="submit" className="w-full flex items-center justify-center" size="lg">
                   Send Message
                   <Send className="ml-2 h-5 w-5" />
                 </Button>
@@ -139,7 +139,7 @@ export default function ContactPage() {
                 Contact Information
               </h2>
               <p className="text-gray-600 dark:text-gray-300 mb-8">
-                We're here to help you on your wellness journey. Reach out to us through any of the following ways.
+                We&apos;re here to help you on your wellness journey. Reach out to us through any of the following ways.
               </p>
 
               <div className="space-y-6">
@@ -184,7 +184,7 @@ export default function ContactPage() {
                       {CONTACT_INFO.email}
                     </a>
                     <p className="text-sm text-gray-500 dark:text-gray-400 mt-1">
-                      We'll respond within 24 hours
+                      We&apos;ll respond within 24 hours
                     </p>
                   </div>
                 </div>
@@ -282,7 +282,7 @@ export default function ContactPage() {
               Ready to Begin Your Wellness Journey?
             </h2>
             <p className="text-xl text-teal-100 mb-8 max-w-2xl mx-auto">
-              Don't wait to start living your best life. Contact us today to schedule your consultation.
+              Don&apos;t wait to start living your best life. Contact us today to schedule your consultation.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Button asChild size="lg" variant="secondary">
