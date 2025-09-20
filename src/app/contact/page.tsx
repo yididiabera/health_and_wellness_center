@@ -5,7 +5,6 @@ import { motion } from "framer-motion"
 import { Phone, Mail, MapPin, Clock, Send } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
-import { CONTACT_INFO } from "@/lib/constants"
 
 export default function ContactPage() {
   const [formData, setFormData] = React.useState({
@@ -16,8 +15,6 @@ export default function ContactPage() {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault()
-    // In a real application, this would send the form data to a server
-    // For now, we'll just show an alert
     alert("Thank you for your message! We'll get back to you soon.")
     setFormData({ name: "", email: "", message: "" })
   }
@@ -27,6 +24,15 @@ export default function ContactPage() {
       ...formData,
       [e.target.name]: e.target.value,
     })
+  }
+
+  // ✅ Updated Contact Info
+  const CONTACT_INFO = {
+    name: "Wellness Health Care LLC",
+    phone: "+1 720 552 1710",
+    email: "Wellnesshealthcare2025@gmail.com",
+    address: "1401 Ulster Street, Denver, CO 80220",
+    hours: "Mon - Fri: 9:00 AM - 6:00 PM\nSat: 10:00 AM - 4:00 PM\nSun: Closed",
   }
 
   return (
@@ -230,44 +236,44 @@ export default function ContactPage() {
           </div>
         </div>
       </section>
+{/* Map Section */}
+<section className="py-16 bg-gray-50 dark:bg-gray-800">
+  <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+    <motion.div
+      className="text-center mb-8"
+      initial={{ opacity: 0, y: 20 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.6 }}
+      viewport={{ once: true }}
+    >
+      <h2 className="text-3xl font-bold text-gray-900 dark:text-white mb-4">
+        Find Us
+      </h2>
+      <p className="text-gray-600 dark:text-gray-300">
+        Visit our wellness center located in Denver, Colorado.
+      </p>
+    </motion.div>
 
-      {/* Map Placeholder */}
-      <section className="py-16 bg-gray-50 dark:bg-gray-800">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <motion.div
-            className="text-center mb-8"
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-            viewport={{ once: true }}
-          >
-            <h2 className="text-3xl font-bold text-gray-900 dark:text-white mb-4">
-              Find Us
-            </h2>
-            <p className="text-gray-600 dark:text-gray-300">
-              Visit our wellness center located in the heart of Health City.
-            </p>
-          </motion.div>
+    <motion.div
+      className="rounded-xl overflow-hidden shadow-lg"
+      initial={{ opacity: 0, y: 20 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.6, delay: 0.2 }}
+      viewport={{ once: true }}
+    >
+      <iframe
+        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3067.283586078228!2d-104.89623268462633!3d39.7392019794486!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x876c7f0a6b6b6b6b%3A0xf3a7b6d5b2f3a7b6!2s1401%20Ulster%20St%2C%20Denver%2C%20CO%2080220%2C%20USA!5e0!3m2!1sen!2sus!4v1695123456789!5m2!1sen!2sus"
+        width="100%"
+        height="450"
+        style={{ border: 0 }}
+        allowFullScreen={true}
+        loading="lazy"
+        referrerPolicy="no-referrer-when-downgrade"
+      ></iframe>
+    </motion.div>
+  </div>
+</section>
 
-          <motion.div
-            className="bg-gray-200 dark:bg-gray-700 rounded-xl h-96 flex items-center justify-center"
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.2 }}
-            viewport={{ once: true }}
-          >
-            <div className="text-center">
-              <MapPin className="h-16 w-16 text-gray-400 dark:text-gray-500 mx-auto mb-4" />
-              <p className="text-gray-500 dark:text-gray-400 text-lg">
-                Interactive Map Coming Soon
-              </p>
-              <p className="text-gray-400 dark:text-gray-500 text-sm mt-2">
-                {CONTACT_INFO.address}
-              </p>
-            </div>
-          </motion.div>
-        </div>
-      </section>
 
       {/* CTA Section */}
       <section className="py-16 bg-teal-600 dark:bg-teal-700">

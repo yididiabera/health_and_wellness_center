@@ -10,22 +10,22 @@ const values = [
   {
     icon: Heart,
     title: "Compassionate Care",
-    description: "We approach every client with empathy, understanding, and genuine care for their well-being.",
+    description: "We treat every client with empathy, dignity, and respect, putting your well-being at the heart of everything we do.",
   },
   {
     icon: Target,
-    title: "Personalized Approach",
-    description: "Every wellness plan is tailored to your unique needs, goals, and lifestyle preferences.",
+    title: "Personalized Wellness",
+    description: "Your health journey is unique. We design tailored care plans that align with your goals and lifestyle.",
   },
   {
     icon: Users,
-    title: "Community Focus",
-    description: "We believe in the power of community and support in achieving lasting wellness goals.",
+    title: "Community Connection",
+    description: "We foster a supportive community where individuals grow stronger together on the path to wellness.",
   },
   {
     icon: Award,
-    title: "Excellence in Service",
-    description: "We maintain the highest standards of care and continuously improve our services.",
+    title: "Commitment to Excellence",
+    description: "We strive for the highest standards in healthcare and continuously innovate to serve you better.",
   },
 ]
 
@@ -42,7 +42,7 @@ export default function AboutPage() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8 }}
             >
-              About Yodit Wellness Center
+              About Health and Wellness Care LLC
             </motion.h1>
             <motion.p
               className="text-xl text-gray-600 dark:text-gray-300 mb-8"
@@ -50,7 +50,7 @@ export default function AboutPage() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.2 }}
             >
-              Your trusted partner in holistic wellness and personal transformation.
+              Your trusted partner in health, healing, and holistic well-being. Together, we help you live a balanced and fulfilling life.
             </motion.p>
           </div>
         </div>
@@ -70,13 +70,10 @@ export default function AboutPage() {
                 Our Mission
               </h2>
               <p className="text-lg text-gray-600 dark:text-gray-300 mb-6 leading-relaxed">
-                To empower individuals on their journey to holistic well-being by providing comprehensive, 
-                personalized wellness solutions that nurture the mind, body, and spirit. We believe that 
-                true health comes from addressing all aspects of human experience.
+                At Health and Wellness Care LLC, our mission is to empower individuals and families to achieve complete well-being—mind, body, and spirit. We combine modern medical insights with holistic practices to ensure lasting health and transformation.
               </p>
               <p className="text-lg text-gray-600 dark:text-gray-300 leading-relaxed">
-                Our approach combines traditional wisdom with modern science, creating a unique pathway 
-                to lasting wellness and personal transformation.
+                By offering compassionate care and personalized solutions, we guide you toward a healthier lifestyle that works for you.
               </p>
             </motion.div>
 
@@ -91,8 +88,7 @@ export default function AboutPage() {
                 Our Vision
               </h3>
               <p className="text-gray-600 dark:text-gray-300 leading-relaxed">
-                To create a world where every individual has access to holistic wellness resources and 
-                support, enabling them to live their most vibrant, balanced, and fulfilling lives.
+                To build a healthier world where individuals have access to quality healthcare, wellness resources, and community support—helping people live longer, happier, and more balanced lives.
               </p>
             </motion.div>
           </div>
@@ -114,7 +110,7 @@ export default function AboutPage() {
                 Our Story
               </h2>
               <p className="text-xl text-gray-600 dark:text-gray-300">
-                Founded on the belief that wellness is a journey, not a destination.
+                Founded on the belief that wellness is not just the absence of illness, but the presence of vitality and balance.
               </p>
             </motion.div>
 
@@ -126,21 +122,13 @@ export default function AboutPage() {
               viewport={{ once: true }}
             >
               <p className="mb-6">
-                Yodit Wellness Center was founded in 2018 by a team of passionate wellness professionals 
-                who recognized the need for a more holistic approach to health and well-being. Our founders, 
-                having experienced the limitations of traditional healthcare, set out to create a space where 
-                individuals could receive comprehensive care that addresses all aspects of their being.
+                Health and Wellness Care LLC was established with a simple vision: to transform healthcare into a compassionate, people-centered journey. Our founders saw the need for a place where individuals could receive care that supports the whole person, not just the symptoms.
               </p>
               <p className="mb-6">
-                Over the years, we have helped thousands of clients achieve their wellness goals through our 
-                integrated approach that combines evidence-based practices with traditional healing modalities. 
-                Our team of licensed professionals includes nutritionists, therapists, wellness coaches, and 
-                holistic health practitioners, all working together to provide you with the most comprehensive 
-                care possible.
+                Over the years, we have grown into a trusted center where healthcare professionals, wellness coaches, and holistic practitioners work together to support our clients in achieving their goals. From stress management and nutrition counseling to holistic therapies, we are committed to helping people thrive.
               </p>
               <p>
-                Today, we continue to evolve and grow, always staying at the forefront of wellness innovation 
-                while maintaining our core values of compassion, integrity, and excellence in service.
+                Today, we continue to evolve while staying true to our core values—compassion, integrity, excellence, and community care.
               </p>
             </motion.div>
           </div>
@@ -158,10 +146,10 @@ export default function AboutPage() {
             viewport={{ once: true }}
           >
             <h2 className="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white mb-4">
-              Our Values
+              Our Core Values
             </h2>
             <p className="text-xl text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">
-              The principles that guide everything we do at Yodit Wellness Center.
+              These values shape everything we do at Health and Wellness Care LLC.
             </p>
           </motion.div>
 
@@ -200,10 +188,10 @@ export default function AboutPage() {
             viewport={{ once: true }}
           >
             <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
-              Ready to Begin Your Journey?
+              Ready to Take Control of Your Health?
             </h2>
             <p className="text-xl text-teal-100 mb-8 max-w-2xl mx-auto">
-              Let us help you discover the path to your best self. Contact us today to learn more about our services.
+              Discover personalized care and holistic wellness solutions that help you live your healthiest life. Connect with our team today.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Button asChild size="lg" variant="secondary">
@@ -211,9 +199,14 @@ export default function AboutPage() {
                   Contact Us
                 </Link>
               </Button>
-              <Button asChild size="lg" variant="outline" className="border-white text-white hover:bg-white hover:text-teal-600">
+              <Button
+                asChild
+                size="lg"
+                variant="outline"
+                className="border-white text-white hover:bg-white hover:text-teal-600"
+              >
                 <Link href="/services">
-                  View Services
+                  Explore Services
                 </Link>
               </Button>
             </div>

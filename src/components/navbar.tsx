@@ -4,7 +4,7 @@ import * as React from "react"
 import Link from "next/link"
 import { usePathname } from "next/navigation"
 import { Menu, X, Sun, Moon } from "lucide-react"
-import { Logo } from "./logo"
+import Image from "next/image"
 import { Button } from "./ui/button"
 import { useTheme } from "./theme-provider"
 import { NAVIGATION } from "@/lib/constants"
@@ -27,11 +27,24 @@ export function Navbar() {
   }
 
   return (
-    <header className="sticky top-0 z-50 w-full border-b bg-white/95 backdrop-blur supports-[backdrop-filter]:bg-white/60 dark:bg-gray-900/95 dark:supports-[backdrop-filter]:bg-gray-900/60">
+    <header className="sticky top-0 z-50 w-full border-b bg-white/95 backdrop-blur supports-[backdrop-filter]:bg-white/60 dark:bg-gray-900/95 dark:supports-[backdrop-filter]:bg-gray-900/60 shadow-sm">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex h-16 items-center justify-between">
-          {/* Logo */}
-          <Logo />
+          {/* ✅ Logo + Site Name */}
+          <Link href="/" className="flex items-center space-x-2">
+            {/* Logo image - put your logo in /public/logo.png */}
+            <Image
+              src="/images/logo.png"
+              alt="Wellness Health Care Logo"
+              width={50}
+              height={50}
+              className="h-16 w-16 object-contain"
+              priority
+            />
+            <span className="font-bold text-lg md:text-xl text-teal-600 dark:text-teal-400 tracking-wide">
+              Wellness Health Care LLC
+            </span>
+          </Link>
 
           {/* Desktop Navigation */}
           <nav className="hidden md:flex items-center space-x-8">
@@ -53,6 +66,7 @@ export function Navbar() {
 
           {/* Theme Toggle & Mobile Menu Button */}
           <div className="flex items-center space-x-4">
+            {/* Theme Toggle */}
             <Button
               variant="ghost"
               size="icon"
@@ -67,7 +81,7 @@ export function Navbar() {
               )}
             </Button>
 
-            {/* Mobile menu button */}
+            {/* Mobile Menu Button */}
             <Button
               variant="ghost"
               size="icon"
@@ -75,11 +89,7 @@ export function Navbar() {
               onClick={() => setIsOpen(!isOpen)}
               aria-label="Toggle menu"
             >
-              {isOpen ? (
-                <X className="h-4 w-4" />
-              ) : (
-                <Menu className="h-4 w-4" />
-              )}
+              {isOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
             </Button>
           </div>
         </div>

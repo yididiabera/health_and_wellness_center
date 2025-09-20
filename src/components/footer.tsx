@@ -1,8 +1,7 @@
 import Link from "next/link"
 import { Phone, Mail, MapPin, Clock, Facebook, Twitter, Instagram } from "lucide-react"
 import { Logo } from "./logo"
-import { CONTACT_INFO, NAVIGATION } from "@/lib/constants"
-import { cn } from "@/lib/utils"
+import { NAVIGATION } from "@/lib/constants"
 
 export function Footer() {
   const currentYear = new Date().getFullYear()
@@ -15,7 +14,8 @@ export function Footer() {
           <div className="space-y-4">
             <Logo className="text-white hover:text-teal-400" />
             <p className="text-gray-300 leading-relaxed">
-              Your journey to holistic well-being starts here. We provide comprehensive wellness solutions that nurture your mind, body, and spirit.
+              Your journey to holistic well-being starts here. We provide comprehensive wellness
+              solutions that nurture your mind, body, and spirit.
             </p>
             <div className="flex space-x-4">
               <a
@@ -96,34 +96,26 @@ export function Footer() {
               <div className="flex items-start space-x-3">
                 <Phone className="h-5 w-5 text-teal-400 mt-0.5 flex-shrink-0" />
                 <a
-                  href={`tel:${CONTACT_INFO.phone}`}
+                  href="tel:+17205521710"
                   className="text-gray-300 hover:text-teal-400 transition-colors"
                 >
-                  {CONTACT_INFO.phone}
+                  +1 720 552 1710
                 </a>
               </div>
               <div className="flex items-start space-x-3">
                 <Mail className="h-5 w-5 text-teal-400 mt-0.5 flex-shrink-0" />
                 <a
-                  href={`mailto:${CONTACT_INFO.email}`}
+                  href="mailto:Wellnesshealthcare2025@gmail.com"
                   className="text-gray-300 hover:text-teal-400 transition-colors"
                 >
-                  {CONTACT_INFO.email}
+                  Wellnesshealthcare2025@gmail.com
                 </a>
               </div>
               <div className="flex items-start space-x-3">
                 <MapPin className="h-5 w-5 text-teal-400 mt-0.5 flex-shrink-0" />
                 <span className="text-gray-300">
-                  {CONTACT_INFO.address}
+                  1401 Ulster Street, Denver, CO 80220
                 </span>
-              </div>
-              <div className="flex items-start space-x-3">
-                <Clock className="h-5 w-5 text-teal-400 mt-0.5 flex-shrink-0" />
-                <div className="text-gray-300">
-                  <div className="whitespace-pre-line text-sm">
-                    {CONTACT_INFO.hours}
-                  </div>
-                </div>
               </div>
             </div>
           </div>
@@ -133,7 +125,7 @@ export function Footer() {
         <div className="border-t border-gray-800 mt-8 pt-8">
           <div className="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
             <p className="text-gray-400 text-sm">
-              © {currentYear} Yodit Wellness Center. All rights reserved.
+              © {currentYear} Wellness Health Care LLC. All rights reserved.
             </p>
             <div className="flex space-x-6 text-sm">
               <Link
