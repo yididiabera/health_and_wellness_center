@@ -143,9 +143,10 @@ export default function HomePage() {
               transition={{ duration: 0.6, delay: 0.4 }}
               viewport={{ once: true }}
             >
-              <Button asChild size="lg" className="rounded-full px-8 py-4 shadow-lg hover:scale-105 transition-transform">
+              <Button asChild size="lg">
                 <Link href="/services">
-                  View All Services <ArrowRight className="ml-2 h-5 w-5" />
+                  View All Services
+                  <ArrowRight className="ml-2 h-5 w-5" />
                 </Link>
               </Button>
             </motion.div>

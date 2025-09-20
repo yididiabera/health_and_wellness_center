@@ -30,10 +30,34 @@ function AnimatedNumber({ value, suffix = "" }: { value: number; suffix?: string
 }
 
 const additionalTestimonials = [
-  { id: "testimonial-5", name: "Lisa Wang", role: "Yoga Instructor", content: "The holistic approach at Yodit Wellness has completely transformed my understanding of health. The team's expertise and genuine care made all the difference in my wellness journey.", rating: 5 },
-  { id: "testimonial-6", name: "Robert Martinez", role: "Retired Teacher", content: "After years of struggling with stress and anxiety, the stress management program here gave me the tools I needed to find peace and balance in my life.", rating: 5 },
-  { id: "testimonial-7", name: "Jennifer Kim", role: "Graphic Designer", content: "The nutrition counseling service was a game-changer for me. I learned how to nourish my body properly and feel more energetic than I have in years.", rating: 5 },
-  { id: "testimonial-8", name: "Thomas Anderson", role: "Software Developer", content: "The wellness coaching sessions helped me develop healthy habits that I've been able to maintain long-term. I'm grateful for the ongoing support and guidance.", rating: 5 },
+  {
+    id: "testimonial-5",
+    name: "Lisa Wang",
+    role: "Yoga Instructor",
+    content: "The holistic approach at Yodit Wellness has completely transformed my understanding of health. The team's expertise and genuine care made all the difference in my wellness journey.",
+    rating: 5,
+  },
+  {
+    id: "testimonial-6",
+    name: "Robert Martinez",
+    role: "Retired Teacher",
+    content: "After years of struggling with stress and anxiety, the stress management program here gave me the tools I needed to find peace and balance in my life.",
+    rating: 5,
+  },
+  {
+    id: "testimonial-7",
+    name: "Jennifer Kim",
+    role: "Graphic Designer",
+    content: "The nutrition counseling service was a game-changer for me. I learned how to nourish my body properly and feel more energetic than I have in years.",
+    rating: 5,
+  },
+  {
+    id: "testimonial-8",
+    name: "Thomas Anderson",
+    role: "Software Developer",
+    content: "The wellness coaching sessions helped me develop healthy habits that I've been able to maintain long-term. I'm grateful for the ongoing support and guidance.",
+    rating: 5,
+  },
 ]
 
 const allTestimonials = [...TESTIMONIALS, ...additionalTestimonials]
@@ -86,23 +110,37 @@ export default function TestimonialsPage() {
       </section>
 
       {/* Featured Testimonial */}
-      <section className="py-20 bg-teal-50 dark:bg-gray-800">
-        <div className="container mx-auto px-4">
-          <motion.div className="max-w-3xl mx-auto text-center p-8 bg-white dark:bg-gray-900 rounded-3xl shadow-lg"
-            initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 0.6 }} viewport={{ once: true }}>
+      <section className="py-16 bg-gray-50 dark:bg-gray-800">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+          <motion.div
+            className="max-w-4xl mx-auto text-center"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+            viewport={{ once: true }}
+          >
             <Quote className="h-12 w-12 text-teal-600 dark:text-teal-400 mx-auto mb-6" />
             <blockquote className="text-2xl md:text-3xl font-medium text-gray-900 dark:text-white mb-8 leading-relaxed">
-              "The holistic approach at Yodit Wellness has completely transformed my life. I feel more balanced, energized, and at peace than I ever thought possible."
+              "The holistic approach at Yodit Wellness has completely transformed my life. I feel more balanced, 
+              energized, and at peace than I ever thought possible. The team's expertise and genuine care made 
+              all the difference in my wellness journey."
             </blockquote>
             <div className="flex items-center justify-center space-x-4">
               <div className="flex items-center">
                 {Array.from({ length: 5 }).map((_, i) => (
-                  <Star key={i} className="h-5 w-5 text-yellow-400 fill-current" />
+                  <Star
+                    key={i}
+                    className="h-5 w-5 text-yellow-400 fill-current"
+                  />
                 ))}
               </div>
               <div className="text-left">
-                <div className="font-semibold text-gray-900 dark:text-white">Sarah Johnson</div>
-                <div className="text-gray-600 dark:text-gray-400">Marketing Director</div>
+                <div className="font-semibold text-gray-900 dark:text-white">
+                  Sarah Johnson
+                </div>
+                <div className="text-gray-600 dark:text-gray-400">
+                  Marketing Director
+                </div>
               </div>
             </div>
           </motion.div>
@@ -122,15 +160,20 @@ export default function TestimonialsPage() {
             </p>
           </motion.div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
             {allTestimonials.map((testimonial, index) => (
-              <motion.div key={testimonial.id}
+              <motion.div
+                key={testimonial.id}
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: index * 0.1 }}
                 viewport={{ once: true }}
               >
-                <TestimonialCard {...testimonial} />
+                <TestimonialCard 
+                  {...testimonial} 
+                  service={testimonial.service}
+                  result={testimonial.result}
+                />
               </motion.div>
             ))}
           </div>

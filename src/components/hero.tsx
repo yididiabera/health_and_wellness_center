@@ -5,6 +5,7 @@ import { motion } from "framer-motion"
 import { ArrowRight, Heart, Shield, Users } from "lucide-react"
 import { Button } from "./ui/button"
 import { cn } from "@/lib/utils"
+import Link from "next/link"
 
 const features = [
   {
@@ -66,12 +67,17 @@ export function Hero() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.4 }}
           >
-            <Button size="lg" className="text-lg px-8 py-4">
-              Explore Services
-              <ArrowRight className="ml-2 h-5 w-5" />
+            <Button size="lg" className="text-lg px-8 py-4" asChild>
+              <Link href="/services" className="flex items-center">
+                Explore Services
+                <ArrowRight className="ml-2 h-5 w-5" />
+              </Link>
             </Button>
-            <Button variant="outline" size="lg" className="text-lg px-8 py-4">
-              Contact Us
+
+            <Button variant="outline" size="lg" className="text-lg px-8 py-4" asChild>
+              <Link href="/contact">
+                Contact Us
+              </Link>
             </Button>
           </motion.div>
 
