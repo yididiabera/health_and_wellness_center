@@ -8,7 +8,6 @@ import { TestimonialsSlider } from "@/components/testimonials-slider"
 import { Button } from "@/components/ui/button"
 import { SERVICES } from "@/lib/constants"
 import Link from "next/link"
-import Image from "next/image"
 
 // ✅ Swiper Imports
 import { Swiper, SwiperSlide } from "swiper/react"
@@ -24,9 +23,9 @@ const features = [
 ]
 
 const sliderImages = [
-  { src: "/images/bg1.jpg", alt: "Healthcare consultation" },
-  { src: "/images/bg3.jpg", alt: "Wellness treatments" },
-  { src: "/images/bg5.jpg", alt: "Holistic healing" },
+  { src: "/yodit-wellness/images/bg1.jpg", alt: "Healthcare consultation" },
+  { src: "/yodit-wellness/images/bg3.jpg", alt: "Wellness treatments" },
+  { src: "/yodit-wellness/images/bg5.jpg", alt: "Holistic healing" },
 ]
 
 export default function HomePage() {
@@ -43,14 +42,10 @@ export default function HomePage() {
         >
           {sliderImages.map((img, index) => (
             <SwiperSlide key={index}>
-              <div className="relative w-full h-[85vh] flex items-center justify-center">
-                <Image
-                  src={img.src}
-                  alt={img.alt}
-                  fill
-                  className="object-cover"
-                  priority
-                />
+              <div
+                className="w-full h-[85vh] bg-cover bg-center flex items-center justify-center relative"
+                style={{ backgroundImage: `url(${img.src})` }}
+              >
                 {/* Overlay Gradient */}
                 <div className="absolute inset-0 bg-gradient-to-b from-black/50 via-black/20 to-black/50"></div>
                 <motion.div
@@ -237,9 +232,9 @@ export default function HomePage() {
               </Button>
             </div>
             <div className="mt-8 text-teal-100 space-y-1">
-              <p>1401 Ulster Street, Denver, CO 80220</p>
-              <p>+1 720 552 1710</p>
-              <p>Wellnesshealthcare2025@gmail.com</p>
+              <p> 1401 Ulster Street, Denver, CO 80220</p>
+              <p> +1 720 552 1710</p>
+              <p> Wellnesshealthcare2025@gmail.com</p>
             </div>
           </motion.div>
         </div>
