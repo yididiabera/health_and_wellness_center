@@ -1,15 +1,14 @@
 "use client"
 
 import * as React from "react"
-import { motion } from "framer-motion"
-import { Star, Quote, Users, Smile, Heart } from "lucide-react"
+import { motion, useMotionValue, animate } from "framer-motion"
+import { Star, Quote, Smile, Heart } from "lucide-react"
 import { TestimonialCard } from "@/components/testimonial-card"
 import { Button } from "@/components/ui/button"
 import { TESTIMONIALS } from "@/lib/constants"
 import Link from "next/link"
-import { useEffect } from "react"
-import { useMotionValue, useTransform, animate } from "framer-motion"
 
+// Animated number component
 function AnimatedNumber({ value, suffix = "" }: { value: number; suffix?: string }) {
   const [display, setDisplay] = React.useState(0)
   const count = useMotionValue(0)
@@ -18,9 +17,7 @@ function AnimatedNumber({ value, suffix = "" }: { value: number; suffix?: string
     const controls = animate(count, value, {
       duration: 2,
       ease: "easeOut",
-      onUpdate: (latest) => {
-        setDisplay(latest)
-      },
+      onUpdate: (latest) => setDisplay(latest),
     })
     return () => controls.stop()
   }, [value, count])
@@ -29,6 +26,7 @@ function AnimatedNumber({ value, suffix = "" }: { value: number; suffix?: string
   return <span>{formatted}{suffix}</span>
 }
 
+// Additional testimonials
 const additionalTestimonials = [
   {
     id: "testimonial-5",
@@ -112,8 +110,7 @@ export default function TestimonialsPage() {
       {/* Featured Testimonial */}
       <section className="py-16 bg-gray-50 dark:bg-gray-800">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <motion.div
-            className="max-w-4xl mx-auto text-center"
+          <motion.div className="max-w-4xl mx-auto text-center"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
@@ -128,10 +125,7 @@ export default function TestimonialsPage() {
             <div className="flex items-center justify-center space-x-4">
               <div className="flex items-center">
                 {Array.from({ length: 5 }).map((_, i) => (
-                  <Star
-                    key={i}
-                    className="h-5 w-5 text-yellow-400 fill-current"
-                  />
+                  <Star key={i} className="h-5 w-5 text-yellow-400" />
                 ))}
               </div>
               <div className="text-left">
@@ -169,11 +163,7 @@ export default function TestimonialsPage() {
                 transition={{ duration: 0.6, delay: index * 0.1 }}
                 viewport={{ once: true }}
               >
-                <TestimonialCard 
-                  {...testimonial} 
-                  service={testimonial.service}
-                  result={testimonial.result}
-                />
+                <TestimonialCard {...testimonial} />
               </motion.div>
             ))}
           </div>
@@ -199,6 +189,7 @@ export default function TestimonialsPage() {
           </motion.div>
         </div>
       </section>
+
     </div>
   )
 }
