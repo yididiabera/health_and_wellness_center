@@ -23,9 +23,9 @@ const features = [
 ]
 
 const sliderImages = [
-  { src: "/yodit-wellness/images/bg1.jpg", alt: "Healthcare consultation" },
-  { src: "/yodit-wellness/images/bg3.jpg", alt: "Wellness treatments" },
-  { src: "/yodit-wellness/images/bg5.jpg", alt: "Holistic healing" },
+  { src: "images/bg1.jpg", alt: "Healthcare consultation" },
+  { src: "images/bg3.jpg", alt: "Wellness treatments" },
+  { src: "images/bg5.jpg", alt: "Holistic healing" },
 ]
 
 export default function HomePage() {
