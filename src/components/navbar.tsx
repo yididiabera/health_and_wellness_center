@@ -34,7 +34,7 @@ export function Navbar() {
           <Link href="/" className="flex items-center space-x-2">
             {/* Logo image - put your logo in /public/logo.png */}
             <Image
-              src="/images/logo.png"
+              src="images/logo.png"
               alt="Wellness Health Care Logo"
               width={50}
               height={50}
