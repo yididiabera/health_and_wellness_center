@@ -16,6 +16,8 @@ import { Autoplay, Pagination } from "swiper/modules"
 import "swiper/css"
 import "swiper/css/pagination"
 
+const basePath = process.env.NEXT_PUBLIC_BASE_PATH || ""
+
 const features = [
   { title: "Personalized Care", description: "Tailored health and wellness plans designed specifically for your unique needs and goals.", icon: CheckCircle },
   { title: "Expert Professionals", description: "Licensed healthcare providers with years of experience in holistic and modern wellness practices.", icon: CheckCircle },
@@ -24,9 +26,9 @@ const features = [
 ]
 
 const sliderImages = [
-  { src: "/images/bg1.jpg", alt: "Healthcare consultation" },
-  { src: "/images/bg3.jpg", alt: "Wellness treatments" },
-  { src: "/images/bg5.jpg", alt: "Holistic healing" },
+  { src: `${basePath}/images/bg1.jpg`, alt: "Healthcare consultation" },
+  { src: `${basePath}/images/bg3.jpg`, alt: "Wellness treatments" },
+  { src: `${basePath}/images/bg5.jpg`, alt: "Holistic healing" },
 ]
 
 export default function HomePage() {
