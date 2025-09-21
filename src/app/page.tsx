@@ -2,7 +2,7 @@
 
 import * as React from "react"
 import { motion } from "framer-motion"
-import { ArrowRight, CheckCircle } from "lucide-react"
+import { ArrowRight, Users, HeartHandshake, Home, GraduationCap } from "lucide-react"
 import { ServiceCard } from "@/components/service-card"
 import { TestimonialsSlider } from "@/components/testimonials-slider"
 import { Button } from "@/components/ui/button"
@@ -16,22 +16,22 @@ import "swiper/css"
 import "swiper/css/pagination"
 
 const features = [
-  { title: "Personalized Care", description: "Tailored health and wellness plans designed specifically for your unique needs and goals.", icon: CheckCircle },
-  { title: "Expert Professionals", description: "Licensed healthcare providers with years of experience in holistic and modern wellness practices.", icon: CheckCircle },
-  { title: "Proven Results", description: "Evidence-based treatments and programs that empower patients to live healthier lives.", icon: CheckCircle },
-  { title: "Holistic Approach", description: "Comprehensive care that addresses body, mind, and spirit for complete well-being.", icon: CheckCircle },
+  { title: "Person-Centered Support", description: "Every individual is unique. We provide services tailored to personal goals, strengths, and needs.", icon: Users },
+  { title: "Community Inclusion", description: "We focus on helping individuals actively participate in their communities with dignity and independence.", icon: HeartHandshake },
+  { title: "Safe & Supportive Homes", description: "Residential programs that create safe, welcoming, and empowering living environments.", icon: Home },
+  { title: "Growth & Learning", description: "Skill-building and educational opportunities to promote independence and lifelong learning.", icon: GraduationCap },
 ]
 
 const sliderImages = [
-  { src: "images/bg1.jpg", alt: "Healthcare consultation" },
-  { src: "images/bg3.jpg", alt: "Wellness treatments" },
-  { src: "images/bg5.jpg", alt: "Holistic healing" },
+  { src: "images/bg1.jpg", alt: "Direct support professional with client" },
+  { src: "images/bg2.jpg", alt: "Community activities" },
+  { src: "images/bg3.jpg", alt: "Residential program support" },
 ]
 
 export default function HomePage() {
   return (
     <div className="flex flex-col space-y-16">
-      {/* Hero Section */}
+      {/* Hero Section with Swiper */}
       <section className="relative w-full h-[85vh]">
         <Swiper
           modules={[Autoplay, Pagination]}
@@ -47,7 +47,7 @@ export default function HomePage() {
                 style={{ backgroundImage: `url(${img.src})` }}
               >
                 {/* Overlay Gradient */}
-                <div className="absolute inset-0 bg-gradient-to-b from-black/50 via-black/20 to-black/50"></div>
+                <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/20 to-black/60"></div>
                 <motion.div
                   initial={{ opacity: 0, y: 40 }}
                   animate={{ opacity: 1, y: 0 }}
@@ -58,10 +58,15 @@ export default function HomePage() {
                     Welcome to Wellness Health Care LLC
                   </h1>
                   <p className="text-lg md:text-2xl mb-6 drop-shadow-md">
-                    Your trusted partner in holistic health and personalized care in Denver, CO.
+                    Empowering individuals with intellectual and developmental disabilities in Colorado.
                   </p>
-                  <Button asChild size="lg" variant="secondary" className="rounded-full px-8 py-4 shadow-lg hover:scale-105 transition-transform">
-                    <Link href="/contact">Book Your Consultation</Link>
+                  <Button
+                    asChild
+                    size="lg"
+                    variant="secondary"
+                    className="rounded-full px-8 py-4 shadow-lg hover:scale-105 transition-transform"
+                  >
+                    <Link href="/contact">Get Support Services</Link>
                   </Button>
                 </motion.div>
               </div>
@@ -81,7 +86,7 @@ export default function HomePage() {
               transition={{ duration: 0.6 }}
               viewport={{ once: true }}
             >
-              Why Choose Wellness Health Care?
+              Why Choose Wellness Health Care LLC?
             </motion.h2>
             <motion.p
               className="text-xl text-gray-600 dark:text-gray-300 max-w-2xl mx-auto"
@@ -90,7 +95,7 @@ export default function HomePage() {
               transition={{ duration: 0.6, delay: 0.2 }}
               viewport={{ once: true }}
             >
-              Compassionate care, medical expertise, and holistic practices to help you achieve optimal health.
+              Dedicated to supporting individuals and families through compassionate, person-centered care.
             </motion.p>
           </div>
 
@@ -126,7 +131,7 @@ export default function HomePage() {
               transition={{ duration: 0.6 }}
               viewport={{ once: true }}
             >
-              Our Health & Wellness Services
+              Our PASA Services
             </motion.h2>
             <motion.p
               className="text-xl text-gray-600 dark:text-gray-300 max-w-2xl mx-auto mb-8"
@@ -135,7 +140,7 @@ export default function HomePage() {
               transition={{ duration: 0.6, delay: 0.2 }}
               viewport={{ once: true }}
             >
-              Explore our wide range of healthcare and wellness services designed to support your health journey.
+              From residential care to day programs and community support, Wellness Health Care LLC helps individuals thrive with dignity.
             </motion.p>
             <motion.div
               initial={{ opacity: 0, y: 20 }}
@@ -179,7 +184,7 @@ export default function HomePage() {
               transition={{ duration: 0.6 }}
               viewport={{ once: true }}
             >
-              What Our Patients Say
+              What Families Say
             </motion.h2>
             <motion.p
               className="text-xl text-gray-600 dark:text-gray-300 max-w-2xl mx-auto"
@@ -188,7 +193,7 @@ export default function HomePage() {
               transition={{ duration: 0.6, delay: 0.2 }}
               viewport={{ once: true }}
             >
-              Real stories from people who have experienced transformation through our care.
+              Stories from individuals and families who have found hope and support with Wellness Health Care LLC.
             </motion.p>
           </div>
 
@@ -213,14 +218,15 @@ export default function HomePage() {
             viewport={{ once: true }}
           >
             <h2 className="text-4xl md:text-5xl font-bold text-white mb-4 drop-shadow-lg">
-              Ready to Begin Your Health Journey?
+              Partner With Wellness Health Care LLC
             </h2>
             <p className="text-xl text-teal-100 mb-8 max-w-2xl mx-auto drop-shadow-md">
-              Take the first step towards better health and well-being. Contact us today to schedule your consultation.
+              Serving individuals with intellectual and developmental disabilities across Colorado.  
+              Let’s create opportunities for independence, dignity, and growth together.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Button asChild size="lg" variant="secondary" className="rounded-full px-8 py-4 shadow-lg hover:scale-105 transition-transform">
-                <Link href="/contact">Schedule an Appointment</Link>
+                <Link href="/contact">Request Services</Link>
               </Button>
               <Button
                 asChild
@@ -234,7 +240,7 @@ export default function HomePage() {
             <div className="mt-8 text-teal-100 space-y-1">
               <p> 1401 Ulster Street, Denver, CO 80220</p>
               <p> +1 720 552 1710</p>
-              <p> Wellnesshealthcare2025@gmail.com</p>
+              <p> wellnesshealthcare2025@gmail.com</p>
             </div>
           </motion.div>
         </div>
