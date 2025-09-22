@@ -111,7 +111,7 @@ export default function HomePage() {
             className="text-5xl md:text-7xl font-extrabold text-white leading-tight"
             style={{
               textShadow:
-                "2px 2px 6px rgba(59,130,246,0.9), -2px -2px 6px rgba(59,130,246,0.7)",
+                "2px 2px 6px rgba(0,0,0,0.9), -2px -2px 6px rgba(0,0,0,0.7)",
             }}
           >
             <span className="block">Wellness Health Care</span>
@@ -125,7 +125,7 @@ export default function HomePage() {
             className="mt-6 text-lg md:text-2xl text-gray-100 max-w-2xl"
             style={{
               textShadow:
-                "1px 1px 4px rgba(59,130,246,0.8), -1px -1px 4px rgba(59,130,246,0.6)",
+                "1px 1px 4px rgba(0,0,0,0.8), -1px -1px 4px rgba(0,0,0,0)",
             }}
           >
             A trusted PASA agency inspiring independence, dignity, and compassionate care across Colorado.
