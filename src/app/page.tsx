@@ -11,10 +11,11 @@ import Link from "next/link"
 
 // ✅ Swiper Imports
 import { Swiper, SwiperSlide } from "swiper/react"
-import { Autoplay, Pagination, EffectFade } from "swiper/modules"
+import { Autoplay, Pagination, EffectFade, Parallax } from "swiper/modules"
 import "swiper/css"
 import "swiper/css/pagination"
 import "swiper/css/effect-fade"
+import "swiper/css/parallax"
 
 const features = [
   { title: "Person-Centered Support", description: "Every individual is unique. We provide services tailored to personal goals, strengths, and needs.", icon: Users },
@@ -23,67 +24,119 @@ const features = [
   { title: "Growth & Learning", description: "Skill-building and educational opportunities to promote independence and lifelong learning.", icon: GraduationCap },
 ]
 
-const sliderImages = [
-  { src: "/images/bg0.jpg", alt: "Direct support professional with client" },
-  { src: "/images/bg2.jpg", alt: "Community activities" },
-  { src: "/images/bg7.jpg", alt: "Residential program support" },
-]
-
 const galleryImages = [
-  { src: "/images/smiling_caregive.jpg", alt: "Smiling caregiver with client" },
-  { src: "/images/outdoor_community.jpg", alt: "Outdoor community support event" },
-  { src: "/images/therapy.jpg", alt: "Therapy and skill development session" },
-  { src: "/images/community_support1.jpg", alt: "Group wellness activity" },
+  { src: "images/smiling_caregive.jpg" },
+  { src: "images/outdoor_community.jpg" },
+  { src: "images/therapy.jpg" },
+  { src: "images/community_support1.jpg" },
 ]
 
 export default function HomePage() {
+  // --- grouped slides: each inner array is one Swiper slide showing 4 images (2x2 grid) ---
+  const groupedSlides = [
+    [
+      { src: "images/outdoor_community.jpg" },
+      { src: "images/charity.jpg" },
+      { src: "images/community_support.jpg" },
+      { src: "images/group_wellness.jpg" },
+    ],
+    [
+      { src: "images/quality_program.jpg" },
+      { src: "images/bg2.jpg" },
+      { src: "images/care.jpg" },
+      { src: "images/therapy.jpg" },
+    ],
+  ]
+
+  // Unique animation presets (one per image slot)
+  const imageVariants = [
+    { initial: { opacity: 0, y: 40 }, animate: { opacity: 1, y: 0 } }, // slide up
+    { initial: { opacity: 0, x: -50 }, animate: { opacity: 1, x: 0 } }, // slide from left
+    { initial: { opacity: 0, x: 50 }, animate: { opacity: 1, x: 0 } }, // slide from right
+    { initial: { opacity: 0, scale: 0.85 }, animate: { opacity: 1, scale: 1 } }, // zoom in
+  ]
+
+  // Different hover classes
+  const hoverClasses = [
+    "hover:scale-110",
+    "hover:-translate-y-2 hover:scale-105",
+    "hover:translate-y-2 hover:scale-105",
+    "hover:translate-x-2 hover:scale-105",
+  ]
+
   return (
     <div className="flex flex-col space-y-20">
-      {/* ✅ Hero Section with Huge Images & Fade Effect */}
-      <section className="relative w-full h-[90vh]">
-        <Swiper
-          modules={[Autoplay, Pagination, EffectFade]}
-          autoplay={{ delay: 4000, disableOnInteraction: false }}
-          pagination={{ clickable: true }}
-          effect="fade"
-          loop
-          className="w-full h-full"
-        >
-          {sliderImages.map((img, index) => (
-            <SwiperSlide key={index}>
-              <div
-                className="w-full h-[90vh] bg-cover bg-center flex items-center justify-center relative"
-                style={{ backgroundImage: `url(${img.src})` }}
+      {/* ===================== HERO: 2x2 grid with overlay title ===================== */}
+<section className="relative w-full h-[90vh]">
+  <Swiper
+    modules={[Autoplay, Pagination, Parallax, EffectFade]}
+    autoplay={{ delay: 4200, disableOnInteraction: false }}
+    pagination={{ clickable: true }}
+    loop
+    speed={1000}
+    className="w-full h-full"
+    parallax
+  >
+    {groupedSlides.map((group, groupIndex) => (
+      <SwiperSlide key={groupIndex}>
+        <div className="w-full h-[90vh] grid grid-cols-2 grid-rows-2 gap-0">
+          {group.map((img, idx) => {
+            const v = imageVariants[idx % imageVariants.length]
+            const hoverClass = hoverClasses[idx % hoverClasses.length]
+            return (
+              <motion.div
+                key={idx}
+                initial={v.initial}
+                animate={v.animate}
+                transition={{ duration: 0.9, delay: idx * 0.15 }}
+                className="relative w-full h-full overflow-hidden"
               >
-                <div className="absolute inset-0 bg-black/50 backdrop-brightness-75"></div>
-                <motion.div
-                  initial={{ opacity: 0, y: 40 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 1 }}
-                  className="relative text-center text-white px-6 md:px-12 max-w-4xl"
-                >
-                  <h1 className="text-5xl md:text-7xl font-extrabold mb-6 leading-tight drop-shadow-xl">
-                    Wellness Health Care LLC
-                  </h1>
-                  <p className="text-xl md:text-2xl mb-8 drop-shadow-lg">
-                    Empowering individuals with intellectual and developmental disabilities across Colorado.
-                  </p>
-                  <Button
-                    asChild
-                    size="lg"
-                    variant="secondary"
-                    className="rounded-full px-10 py-5 text-lg shadow-xl hover:scale-110 transition-transform"
-                  >
-                    <Link href="/contact">Get Support Services</Link>
-                  </Button>
-                </motion.div>
-              </div>
-            </SwiperSlide>
-          ))}
-        </Swiper>
-      </section>
+                <img
+                  src={img.src}
+                  loading="lazy"
+                  className={`w-full h-full object-cover transition-transform duration-700 ease-out ${hoverClass}`}
+                />
+                <div className="absolute inset-0 pointer-events-none bg-gradient-to-t from-black/20 to-transparent" />
+              </motion.div>
+            )
+          })}
+        </div>
 
-      {/* ✅ Features Section */}
+        {/* ✅ Centered Title + Subtitle Overlay */}
+        <div className="absolute inset-0 flex flex-col items-center justify-center text-center px-6">
+          <motion.h1
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 1 }}
+            className="text-5xl md:text-7xl font-extrabold text-white leading-tight"
+            style={{
+              textShadow:
+                "2px 2px 6px rgba(59,130,246,0.9), -2px -2px 6px rgba(59,130,246,0.7)",
+            }}
+          >
+            <span className="block">Wellness Health Care</span>
+            <span className="block">LLC</span>
+          </motion.h1>
+
+          <motion.p
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 1, delay: 0.4 }}
+            className="mt-6 text-lg md:text-2xl text-gray-100 max-w-2xl"
+            style={{
+              textShadow:
+                "1px 1px 4px rgba(59,130,246,0.8), -1px -1px 4px rgba(59,130,246,0.6)",
+            }}
+          >
+            A trusted PASA agency inspiring independence, dignity, and compassionate care across Colorado.
+          </motion.p>
+        </div>
+      </SwiperSlide>
+    ))}
+  </Swiper>
+</section>
+
+      {/* ===================== Features Section ===================== */}
       <section className="py-24 bg-gray-50 dark:bg-gray-900">
         <div className="container mx-auto px-6 lg:px-12">
           <div className="text-center mb-20">
@@ -128,7 +181,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* ✅ Services Section */}
+      {/* ===================== Services Section ===================== */}
       <section className="py-24 bg-white dark:bg-gray-900">
         <div className="container mx-auto px-6 lg:px-12">
           <div className="text-center mb-20">
@@ -174,7 +227,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* ✅ Huge Image Gallery Section */}
+      {/* ===================== Huge Image Gallery ===================== */}
       <section className="py-24 bg-gray-100 dark:bg-gray-800">
         <div className="container mx-auto px-6 lg:px-12">
           <div className="text-center mb-16">
@@ -197,7 +250,6 @@ export default function HomePage() {
               >
                 <img
                   src={img.src}
-                  alt={img.alt}
                   className="w-full h-[350px] object-cover transform hover:scale-110 transition duration-700 ease-out"
                 />
               </motion.div>
@@ -206,7 +258,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* ✅ Testimonials Section */}
+      {/* ===================== Testimonials ===================== */}
       <section className="py-24 bg-gray-50 dark:bg-gray-800">
         <div className="container mx-auto px-6 lg:px-12">
           <div className="text-center mb-16">
@@ -233,7 +285,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* ✅ CTA Section */}
+      {/* ===================== CTA ===================== */}
       <section className="py-24 bg-gradient-to-r from-teal-600 to-teal-500 dark:from-teal-700 dark:to-teal-600">
         <div className="container mx-auto px-6 lg:px-12 text-center">
           <motion.div
