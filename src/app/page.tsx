@@ -11,9 +11,10 @@ import Link from "next/link"
 
 // ✅ Swiper Imports
 import { Swiper, SwiperSlide } from "swiper/react"
-import { Autoplay, Pagination } from "swiper/modules"
+import { Autoplay, Pagination, EffectFade } from "swiper/modules"
 import "swiper/css"
 import "swiper/css/pagination"
+import "swiper/css/effect-fade"
 
 const features = [
   { title: "Person-Centered Support", description: "Every individual is unique. We provide services tailored to personal goals, strengths, and needs.", icon: Users },
@@ -23,9 +24,16 @@ const features = [
 ]
 
 const sliderImages = [
-  { src: "/images/bg1.jpg", alt: "Direct support professional with client" },
-  { src: "/images/bg2.jpg", alt: "Community activities" },
-  { src: "/images/bg3.jpg", alt: "Residential program support" },
+  { src: "images/bg1.jpg", alt: "Direct support professional with client" },
+  { src: "images/bg4.jpg", alt: "Community activities" },
+  { src: "images/bg3.jpg", alt: "Residential program support" },
+]
+
+const galleryImages = [
+  { src: "images/smiling_caregive.jpg", alt: "Smiling caregiver with client" },
+  { src: "images/outdoor_community.jpg", alt: "Outdoor community support event" },
+  { src: "images/therapy.jpg", alt: "Therapy and skill development session" },
+  { src: "images/community_support1.jpg", alt: "Group wellness activity" },
 ]
 
 export default function HomePage() {
@@ -34,9 +42,10 @@ export default function HomePage() {
       {/* ✅ Hero Section with Swiper */}
       <section className="relative w-full h-[85vh]">
         <Swiper
-          modules={[Autoplay, Pagination]}
-          autoplay={{ delay: 4500, disableOnInteraction: false }}
+          modules={[Autoplay, Pagination, EffectFade]}
+          autoplay={{ delay: 4000, disableOnInteraction: false }}
           pagination={{ clickable: true }}
+          effect="fade"
           loop
           className="w-full h-full"
         >
@@ -46,8 +55,7 @@ export default function HomePage() {
                 className="w-full h-[85vh] bg-cover bg-center flex items-center justify-center relative"
                 style={{ backgroundImage: `url(${img.src})` }}
               >
-                {/* Overlay Gradient */}
-                <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/20 to-black/60"></div>
+                <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-black/30 to-black/70"></div>
                 <motion.div
                   initial={{ opacity: 0, y: 40 }}
                   animate={{ opacity: 1, y: 0 }}
@@ -95,7 +103,7 @@ export default function HomePage() {
               transition={{ duration: 0.6, delay: 0.2 }}
               viewport={{ once: true }}
             >
-              Dedicated to supporting individuals and families through compassionate, person-centered Wellness and Health Care services.
+              Dedicated to supporting individuals and families through compassionate, person-centered services.
             </motion.p>
           </div>
 
@@ -163,6 +171,45 @@ export default function HomePage() {
               </motion.div>
             ))}
           </div>
+        </div>
+      </section>
+
+      {/* ✅ Image Gallery Slider */}
+      <section className="py-20 bg-gray-100 dark:bg-gray-800">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white mb-4">
+              Life at Wellness Health Care
+            </h2>
+            <p className="text-xl text-gray-600 dark:text-gray-300">
+              A glimpse of our daily activities, community events, and joyful moments.
+            </p>
+          </div>
+          <Swiper
+            modules={[Autoplay, Pagination]}
+            autoplay={{ delay: 3000, disableOnInteraction: false }}
+            pagination={{ clickable: true }}
+            slidesPerView={1}
+            breakpoints={{
+              640: { slidesPerView: 2, spaceBetween: 20 },
+              1024: { slidesPerView: 3, spaceBetween: 30 },
+            }}
+            loop
+          >
+            {galleryImages.map((img, index) => (
+              <SwiperSlide key={index}>
+                <motion.div
+                  initial={{ opacity: 0, y: 30 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.6 }}
+                  viewport={{ once: true }}
+                  className="rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300"
+                >
+                  <img src={img.src} alt={img.alt} className="w-full h-72 object-cover" />
+                </motion.div>
+              </SwiperSlide>
+            ))}
+          </Swiper>
         </div>
       </section>
 
