@@ -226,38 +226,47 @@ export default function HomePage() {
           </div>
         </div>
       </section>
+{/* ===================== Huge Image Gallery ===================== */}
+<section className="py-24 bg-gray-100 dark:bg-gray-800">
+  <div className="container mx-auto px-6 lg:px-12">
+    <div className="text-center mb-16">
+      <h2 className="text-4xl md:text-5xl font-bold text-gray-900 dark:text-white mb-6">
+        Life at Wellness Health Care
+      </h2>
+      <p className="text-xl text-gray-600 dark:text-gray-300">
+        A glimpse of our daily activities, community events, and joyful moments.
+      </p>
+    </div>
 
-      {/* ===================== Huge Image Gallery ===================== */}
-      <section className="py-24 bg-gray-100 dark:bg-gray-800">
-        <div className="container mx-auto px-6 lg:px-12">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl md:text-5xl font-bold text-gray-900 dark:text-white mb-6">
-              Life at Wellness Health Care
-            </h2>
-            <p className="text-xl text-gray-600 dark:text-gray-300">
-              A glimpse of our daily activities, community events, and joyful moments.
-            </p>
-          </div>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
-            {galleryImages.map((img, index) => (
-              <motion.div
-                key={index}
-                initial={{ opacity: 0, scale: 0.9 }}
-                whileInView={{ opacity: 1, scale: 1 }}
-                transition={{ duration: 0.6, delay: index * 0.1 }}
-                viewport={{ once: true }}
-                className="overflow-hidden rounded-3xl shadow-lg hover:shadow-3xl"
-              >
-                <img
-                  src={img.src}
-                  className="w-full h-[350px] object-cover transform hover:scale-110 transition duration-700 ease-out"
-                />
-              </motion.div>
-            ))}
-          </div>
-        </div>
-      </section>
-
+    {/* ✅ Swiper for Sliding Two Images */}
+    <Swiper
+      modules={[Autoplay, Pagination]}
+      autoplay={{ delay: 3500, disableOnInteraction: false }}
+      pagination={{ clickable: true }}
+      loop
+      spaceBetween={10} // ✅ small gap between images
+      slidesPerView={2} // ✅ show 2 images side by side
+      className="w-full h-[450px] rounded-2xl overflow-hidden"
+    >
+      {galleryImages.map((img, index) => (
+        <SwiperSlide key={index}>
+          <motion.div
+            initial={{ opacity: 0, scale: 0.95 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.6, delay: index * 0.1 }}
+            viewport={{ once: true }}
+            className="w-full h-[450px] overflow-hidden rounded-xl"
+          >
+            <img
+              src={img.src}
+              className="w-full h-full object-cover"
+            />
+          </motion.div>
+        </SwiperSlide>
+      ))}
+    </Swiper>
+  </div>
+</section>
       {/* ===================== Testimonials ===================== */}
       <section className="py-24 bg-gray-50 dark:bg-gray-800">
         <div className="container mx-auto px-6 lg:px-12">
