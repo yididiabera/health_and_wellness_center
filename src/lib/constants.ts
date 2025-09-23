@@ -1,10 +1,10 @@
 import { Heart, Apple, Zap, Target } from "lucide-react"
 
 export const SITE_CONFIG = {
-  name: "Yodit Wellness Center",
+  name: "Wellness Health Care LLC",
   description: "Your Journey to Holistic Well-being Starts Here",
   url: "https://yodit-wellness.com",
-  ogImage: "/og-image.jpg",
+  ogImage: "/logo.png",
   links: {
     twitter: "https://twitter.com/yoditwellness",
     github: "https://github.com/yodit-wellness",

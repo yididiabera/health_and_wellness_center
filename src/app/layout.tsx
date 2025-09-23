@@ -13,8 +13,8 @@ const inter = Inter({
 
 export const metadata: Metadata = {
   title: {
-    default: "Yodit Wellness Center - Your Journey to Holistic Well-being",
-    template: "%s | Yodit Wellness Center"
+    default: "Wellness Health Care LLC - Your Journey to Holistic Well-being",
+    template: "%s | Wellness Health Care LLC"
   },
   description: "Discover personalized wellness solutions that nurture your mind, body, and spirit for a healthier, more balanced life. Expert holistic therapy, nutrition counseling, stress management, and wellness coaching.",
   keywords: [
@@ -29,9 +29,9 @@ export const metadata: Metadata = {
     "health and wellness",
     "wellness services"
   ],
-  authors: [{ name: "Yodit Wellness Center" }],
-  creator: "Yodit Wellness Center",
-  publisher: "Yodit Wellness Center",
+  authors: [{ name: "Wellness Health Care LLC" }],
+  creator: "Wellness Health Care LLC",
+  publisher: "Wellness Health Care LLC",
   formatDetection: {
     email: false,
     address: false,
@@ -45,23 +45,23 @@ export const metadata: Metadata = {
     type: "website",
     locale: "en_US",
     url: "https://yodit-wellness.com",
-    title: "Yodit Wellness Center - Your Journey to Holistic Well-being",
+    title: "Wellness Health Care LLC - Your Journey to Holistic Well-being",
     description: "Discover personalized wellness solutions that nurture your mind, body, and spirit for a healthier, more balanced life.",
-    siteName: "Yodit Wellness Center",
+    siteName: "Wellness Health Care LLC",
     images: [
       {
-        url: "/og-image.jpg",
+        url: "/logo.png",
         width: 1200,
         height: 630,
-        alt: "Yodit Wellness Center - Holistic Wellness Services",
+        alt: "Wellness Health Care LLC - Holistic Wellness Services",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Yodit Wellness Center - Your Journey to Holistic Well-being",
+    title: "Wellness Health Care LLC - Your Journey to Holistic Well-being",
     description: "Discover personalized wellness solutions that nurture your mind, body, and spirit for a healthier, more balanced life.",
-    images: ["/og-image.jpg"],
+    images: ["/logo.png"],
     creator: "@yoditwellness",
   },
   robots: {
@@ -87,7 +87,7 @@ const jsonLd = {
   "description": "Your Journey to Holistic Well-being Starts Here",
   "url": "https://yodit-wellness.com",
   "logo": "https://yodit-wellness.com/logo.png",
-  "image": "https://yodit-wellness.com/og-image.jpg",
+  "image": "https://yodit-wellness.com/logo.png",
   "telephone": "(555) 123-4567",
   "email": "info@yoditwellness.com",
   "address": {

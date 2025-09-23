@@ -7,8 +7,14 @@ import { Menu, X, Sun, Moon } from "lucide-react"
 import Image from "next/image"
 import { Button } from "./ui/button"
 import { useTheme } from "./theme-provider"
-import { NAVIGATION } from "@/lib/constants"
+import { NAVIGATION as BASE_NAV } from "@/lib/constants"
 import { cn } from "@/lib/utils"
+
+// ✅ Add FAQ to the navigation
+const NAVIGATION = [
+  ...BASE_NAV,
+  { name: "FAQ", href: "/faq" }, // New FAQ Menu Item
+]
 
 export function Navbar() {
   const [isOpen, setIsOpen] = React.useState(false)
