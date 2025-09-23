@@ -1,5 +1,5 @@
 import Link from "next/link"
-import { Phone, Mail, MapPin, Clock, Facebook, Twitter, Instagram } from "lucide-react"
+import { Phone, Mail, MapPin, Facebook, Instagram, Linkedin, Twitter } from "lucide-react"
 import { Logo } from "./logo"
 import { NAVIGATION } from "@/lib/constants"
 
@@ -14,30 +14,47 @@ export function Footer() {
           <div className="space-y-4">
             <Logo className="text-white hover:text-teal-400" />
             <p className="text-gray-300 leading-relaxed">
-              Your journey to holistic well-being starts here. We provide comprehensive wellness
-              solutions that nurture your mind, body, and spirit.
+              Wellness Health Care LLC is a Colorado-based Program Approved Service Agency (PASA) 
+              dedicated to supporting individuals with intellectual and developmental disabilities. 
+              We focus on compassionate care, independence, and inclusion.
             </p>
             <div className="flex space-x-4">
               <a
-                href="#"
+                href="https://facebook.com"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="text-gray-400 hover:text-teal-400 transition-colors"
                 aria-label="Facebook"
               >
                 <Facebook className="h-5 w-5" />
               </a>
               <a
-                href="#"
-                className="text-gray-400 hover:text-teal-400 transition-colors"
-                aria-label="Twitter"
-              >
-                <Twitter className="h-5 w-5" />
-              </a>
-              <a
-                href="#"
+                href="https://instagram.com"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="text-gray-400 hover:text-teal-400 transition-colors"
                 aria-label="Instagram"
               >
                 <Instagram className="h-5 w-5" />
+              </a>
+              <a
+                href="https://linkedin.com"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-gray-400 hover:text-teal-400 transition-colors"
+                aria-label="LinkedIn"
+              >
+                <Linkedin className="h-5 w-5" />
+              </a>
+              <a
+                href="https://x.com"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-gray-400 hover:text-teal-400 transition-colors"
+                aria-label="X"
+              >
+                {/* Using Twitter icon but for X */}
+                <Twitter className="h-5 w-5" />
               </a>
             </div>
           </div>
@@ -60,31 +77,31 @@ export function Footer() {
 
           {/* Services */}
           <div className="space-y-4">
-            <h3 className="text-lg font-semibold">Services</h3>
+            <h3 className="text-lg font-semibold">Our Services</h3>
             <nav className="space-y-2">
               <Link
-                href="/services/holistic-therapy"
+                href="/services/residential-support"
                 className="block text-gray-300 hover:text-teal-400 transition-colors"
               >
-                Holistic Therapy
+                Residential Support
               </Link>
               <Link
-                href="/services/nutrition-counseling"
+                href="/services/day-programs"
                 className="block text-gray-300 hover:text-teal-400 transition-colors"
               >
-                Nutrition Counseling
+                Day Programs
               </Link>
               <Link
-                href="/services/stress-management"
+                href="/services/community-inclusion"
                 className="block text-gray-300 hover:text-teal-400 transition-colors"
               >
-                Stress Management
+                Community Inclusion
               </Link>
               <Link
-                href="/services/wellness-coaching"
+                href="/services/employment-assistance"
                 className="block text-gray-300 hover:text-teal-400 transition-colors"
               >
-                Wellness Coaching
+                Employment Assistance
               </Link>
             </nav>
           </div>

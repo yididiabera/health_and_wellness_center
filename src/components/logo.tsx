@@ -15,7 +15,7 @@ export function Logo({ className, href = "/" }: LogoProps) {
         className
       )}
     >
-      Yodit Wellness
+      Wellness Health Care LLC
     </Link>
   )
 }

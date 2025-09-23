@@ -2,120 +2,121 @@
 
 import * as React from "react"
 import { motion } from "framer-motion"
-import { ArrowRight, CheckCircle, Clock, Users, Star } from "lucide-react"
-import { ServiceCard } from "@/components/service-card"
+import { ArrowRight, CheckCircle } from "lucide-react"
 import { Button } from "@/components/ui/button"
-import { SERVICES } from "@/lib/constants"
 import Link from "next/link"
 
+// ✅ Updated service content to fit PASA Colorado
 const serviceDetails = [
   {
-    id: "holistic-therapy",
-    title: "Holistic Therapy",
-    description: "Comprehensive wellness approach integrating mind, body, and spirit for complete healing.",
+    id: "personal-care",
+    title: "Personal Care Assistance",
+    description: "Compassionate support for daily living activities, helping individuals maintain independence and dignity.",
     features: [
-      "Mind-body integration techniques",
-      "Energy healing modalities",
-      "Stress reduction strategies",
-      "Emotional wellness support",
-      "Spiritual guidance and counseling"
+      "Bathing and grooming assistance",
+      "Mobility and transfer support",
+      "Medication reminders",
+      "Meal preparation and feeding support",
+      "Personal hygiene and safety monitoring"
     ],
-    duration: "60-90 minutes",
-    price: "Starting at $120",
+    duration: "Flexible scheduling",
+    price: "Custom Plans",
     rating: 4.9,
-    reviews: 127
+    reviews: 132
   },
   {
-    id: "nutrition-counseling",
-    title: "Nutrition Counseling",
-    description: "Personalized nutrition plans to support your health goals and lifestyle.",
+    id: "community-integration",
+    title: "Community Integration",
+    description: "Helping individuals connect, participate, and thrive in their local community through tailored activities.",
     features: [
-      "Personalized meal planning",
-      "Nutritional assessment",
-      "Supplement recommendations",
-      "Lifestyle modification support",
-      "Ongoing monitoring and adjustments"
+      "Recreational activities and outings",
+      "Job and volunteer support",
+      "Transportation assistance",
+      "Life skill development",
+      "Socialization opportunities"
     ],
-    duration: "45-60 minutes",
-    price: "Starting at $100",
+    duration: "Hourly or Daily",
+    price: "Custom Plans",
     rating: 4.8,
-    reviews: 89
+    reviews: 115
   },
   {
-    id: "stress-management",
-    title: "Stress Management",
-    description: "Evidence-based techniques to reduce stress and improve mental well-being.",
+    id: "respite-care",
+    title: "Respite Care",
+    description: "Reliable short-term relief for family caregivers while ensuring loved ones are safe and supported.",
     features: [
-      "Meditation and mindfulness training",
-      "Breathing exercises",
-      "Cognitive behavioral techniques",
-      "Relaxation therapy",
-      "Stress assessment and monitoring"
+      "In-home support",
+      "Overnight stays",
+      "Flexible scheduling options",
+      "Engaging care activities",
+      "Emergency respite coverage"
     ],
-    duration: "45-60 minutes",
-    price: "Starting at $90",
-    rating: 4.9,
-    reviews: 156
-  },
-  {
-    id: "wellness-coaching",
-    title: "Wellness Coaching",
-    description: "One-on-one guidance to help you achieve your personal wellness goals.",
-    features: [
-      "Goal setting and planning",
-      "Accountability support",
-      "Lifestyle coaching",
-      "Habit formation strategies",
-      "Progress tracking and evaluation"
-    ],
-    duration: "50-70 minutes",
-    price: "Starting at $110",
+    duration: "Hourly or Overnight",
+    price: "Custom Plans",
     rating: 4.7,
     reviews: 98
+  },
+  {
+    id: "habilitation-services",
+    title: "Habilitation Services",
+    description: "Skill-building and individualized support to promote independence and improve quality of life.",
+    features: [
+      "Daily living skills training",
+      "Communication and social skills",
+      "Self-advocacy support",
+      "Personalized development plans",
+      "Ongoing progress monitoring"
+    ],
+    duration: "Varies by plan",
+    price: "Custom Plans",
+    rating: 4.9,
+    reviews: 121
   }
 ]
 
 export default function ServicesPage() {
   return (
     <div className="flex flex-col">
-      {/* Hero Section */}
-      <section className="py-16 bg-gradient-to-br from-teal-50 to-white dark:from-gray-900 dark:to-gray-800">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="max-w-4xl mx-auto text-center">
-            <motion.h1
-              className="text-4xl md:text-5xl font-bold text-gray-900 dark:text-white mb-6"
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8 }}
-            >
-              Our Wellness Services
-            </motion.h1>
-            <motion.p
-              className="text-xl text-gray-600 dark:text-gray-300 mb-8"
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.2 }}
-            >
-              Comprehensive wellness solutions designed to support your journey to optimal health and well-being.
-            </motion.p>
-          </div>
+      {/* ===================== Hero Section with Background Image ===================== */}
+      <section className="relative py-24 bg-gray-900 text-white">
+        <div
+          className="absolute inset-0 bg-cover bg-center opacity-40"
+          style={{ backgroundImage: "url('../../images/care.jpg')" }} // ✅ replace with your background
+        ></div>
+        <div className="relative z-10 container mx-auto px-6 lg:px-12 text-center">
+          <motion.h1
+            className="text-4xl md:text-5xl font-bold mb-6"
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+          >
+            Our Wellness Services
+          </motion.h1>
+          <motion.p
+            className="text-xl max-w-3xl mx-auto"
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.2 }}
+          >
+            Personalized PASA-approved services designed to empower individuals and families across Colorado.
+          </motion.p>
         </div>
       </section>
 
-      {/* Services Grid */}
+      {/* ===================== Services Grid ===================== */}
       <section className="py-20 bg-white dark:bg-gray-900">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="container mx-auto px-6 lg:px-12">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
             {serviceDetails.map((service, index) => (
               <motion.div
                 key={service.id}
                 className="group"
-                initial={{ opacity: 0, y: 20 }}
+                initial={{ opacity: 0, y: 40 }}
                 whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: index * 0.1 }}
+                transition={{ duration: 0.6, delay: index * 0.15 }}
                 viewport={{ once: true }}
               >
-                <div className="bg-white dark:bg-gray-800 rounded-2xl p-8 shadow-sm hover:shadow-md transition-all duration-300 border border-gray-100 dark:border-gray-700">
+                <div className="bg-white dark:bg-gray-800 rounded-3xl p-10 shadow-lg hover:shadow-2xl transform hover:-translate-y-3 transition-all duration-500 border border-gray-100 dark:border-gray-700">
                   {/* Header */}
                   <div className="mb-8">
                     <h3 className="text-3xl font-bold text-gray-900 dark:text-white mb-4">
@@ -126,133 +127,34 @@ export default function ServicesPage() {
                     </p>
                   </div>
 
-                  {/* Key Features - Simplified */}
-                  <div className="mb-8">
-                    <ul className="space-y-3">
-                      {service.features.slice(0, 3).map((feature, featureIndex) => (
-                        <li key={featureIndex} className="flex items-start space-x-3">
-                          <CheckCircle className="h-5 w-5 text-teal-600 dark:text-teal-400 mt-1 flex-shrink-0" />
-                          <span className="text-gray-600 dark:text-gray-300">
-                            {feature}
-                          </span>
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
+                  {/* Key Features */}
+                  <ul className="space-y-3 mb-8">
+                    {service.features.slice(0, 3).map((feature, featureIndex) => (
+                      <li key={featureIndex} className="flex items-start space-x-3">
+                        <CheckCircle className="h-6 w-6 text-teal-600 dark:text-teal-400 mt-1 flex-shrink-0" />
+                        <span className="text-gray-700 dark:text-gray-300">{feature}</span>
+                      </li>
+                    ))}
+                  </ul>
 
                   {/* Price & Duration */}
                   <div className="flex items-center justify-between mb-8">
                     <div className="text-2xl font-bold text-teal-600 dark:text-teal-400">
                       {service.price}
                     </div>
-                    <div className="text-gray-500 dark:text-gray-400">
-                      {service.duration}
-                    </div>
+                    <div className="text-gray-500 dark:text-gray-400">{service.duration}</div>
                   </div>
 
-                  {/* CTA Button */}
+                  {/* CTA */}
                   <Button className="w-full" size="lg" asChild>
                     <Link href={`/contact?service=${service.id}`} className="flex items-center justify-center">
-                      Book Consultation
-                      <ArrowRight className="ml-2 h-5 w-5" />
+                      Book Consultation <ArrowRight className="ml-2 h-5 w-5" />
                     </Link>
                   </Button>
                 </div>
               </motion.div>
             ))}
           </div>
-        </div>
-      </section>
-
-      {/* Process Section */}
-      <section className="py-20 bg-gray-50 dark:bg-gray-800">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <motion.div
-            className="text-center mb-16"
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-            viewport={{ once: true }}
-          >
-            <h2 className="text-4xl md:text-5xl font-bold text-gray-900 dark:text-white mb-8">
-              How It Works
-            </h2>
-            <p className="text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto">
-              Our simple 3-step process makes it easy to get started on your wellness journey.
-            </p>
-          </motion.div>
-
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
-            {[
-              {
-                step: "01",
-                title: "Initial Consultation",
-                description: "We start with a comprehensive assessment to understand your needs, goals, and current health status."
-              },
-              {
-                step: "02",
-                title: "Personalized Plan",
-                description: "Based on your consultation, we create a customized wellness plan tailored to your specific requirements."
-              },
-              {
-                step: "03",
-                title: "Ongoing Support",
-                description: "We provide continuous guidance, monitoring, and adjustments to ensure you achieve your wellness goals."
-              }
-            ].map((step, index) => (
-              <motion.div
-                key={step.step}
-                className="text-center"
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: index * 0.2 }}
-                viewport={{ once: true }}
-              >
-                <div className="inline-flex items-center justify-center w-20 h-20 rounded-full bg-teal-100 dark:bg-teal-900 mb-6">
-                  <span className="text-3xl font-bold text-teal-600 dark:text-teal-400">
-                    {step.step}
-                  </span>
-                </div>
-                <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-4">
-                  {step.title}
-                </h3>
-                <p className="text-lg text-gray-600 dark:text-gray-300 leading-relaxed">
-                  {step.description}
-                </p>
-              </motion.div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* CTA Section */}
-      <section className="py-16 bg-teal-600 dark:bg-teal-700">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-            viewport={{ once: true }}
-          >
-            <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
-              Ready to Get Started?
-            </h2>
-            <p className="text-xl text-teal-100 mb-8 max-w-2xl mx-auto">
-              Book your consultation today and take the first step towards a healthier, more balanced life.
-            </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Button asChild size="lg" variant="secondary">
-                <Link href="/contact">
-                  Book Consultation
-                </Link>
-              </Button>
-              <Button asChild size="lg" variant="outline" className="border-white text-white hover:bg-white hover:text-teal-600">
-                <Link href="/testimonials">
-                  Read Testimonials
-                </Link>
-              </Button>
-            </div>
-          </motion.div>
         </div>
       </section>
     </div>

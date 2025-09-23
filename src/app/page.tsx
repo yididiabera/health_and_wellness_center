@@ -135,10 +135,10 @@ export default function HomePage() {
     ))}
   </Swiper>
 </section>
-
       {/* ===================== Features Section ===================== */}
-      <section className="py-24 bg-gray-50 dark:bg-gray-900">
+      <section className="py-24 bg-gradient-to-b from-gray-50 to-white dark:from-gray-900 dark:to-gray-950">
         <div className="container mx-auto px-6 lg:px-12">
+          {/* Section Header */}
           <div className="text-center mb-20">
             <motion.h2
               className="text-4xl md:text-5xl font-bold text-gray-900 dark:text-white mb-6"
@@ -160,27 +160,38 @@ export default function HomePage() {
             </motion.p>
           </div>
 
+          {/* Feature Cards */}
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10">
             {features.map((feature, index) => (
               <motion.div
                 key={feature.title}
-                className="text-center p-10 rounded-3xl bg-white dark:bg-gray-800 shadow-xl hover:shadow-3xl transform hover:-translate-y-3 transition-all duration-500"
-                initial={{ opacity: 0, y: 30 }}
+                className="relative group p-10 rounded-3xl shadow-lg bg-white dark:bg-gray-800 border border-gray-100 dark:border-gray-700 hover:shadow-2xl transition-transform duration-500"
+                initial={{ opacity: 0, y: 40 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: index * 0.15 }}
                 viewport={{ once: true }}
+                whileHover={{ scale: 1.05, rotateX: 5, rotateY: -5 }}
               >
-                <div className="inline-flex items-center justify-center w-20 h-20 rounded-full bg-teal-100 dark:bg-teal-900 mb-6">
-                  <feature.icon className="h-10 w-10 text-teal-600 dark:text-teal-400" />
+                {/* Gradient Glow Border */}
+                <div className="absolute inset-0 rounded-3xl bg-gradient-to-tr from-teal-400 via-teal-500 to-teal-600 opacity-0 group-hover:opacity-100 blur-lg transition duration-500"></div>
+
+                {/* Card Content */}
+                <div className="relative z-10 text-center">
+                  <div className="inline-flex items-center justify-center w-20 h-20 rounded-full bg-teal-100 dark:bg-teal-900 mb-6 group-hover:scale-110 transition-transform duration-500">
+                    <feature.icon className="h-10 w-10 text-teal-600 dark:text-teal-400" />
+                  </div>
+                  <h3 className="text-xl font-semibold text-gray-900 dark:text-white mb-3">
+                    {feature.title}
+                  </h3>
+                  <p className="text-gray-600 dark:text-gray-300">
+                    {feature.description}
+                  </p>
                 </div>
-                <h3 className="text-xl font-semibold text-gray-900 dark:text-white mb-3">{feature.title}</h3>
-                <p className="text-gray-600 dark:text-gray-300">{feature.description}</p>
               </motion.div>
             ))}
           </div>
         </div>
       </section>
-
       {/* ===================== Services Section ===================== */}
       <section className="py-24 bg-white dark:bg-gray-900">
         <div className="container mx-auto px-6 lg:px-12">
