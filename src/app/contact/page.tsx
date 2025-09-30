@@ -26,13 +26,14 @@ export default function ContactPage() {
     })
   }
 
-  const CONTACT_INFO = {
-    name: "Wellness Health Care LLC",
-    phone: "+1 720 552 1710",
-    email: "Wellnesshealthcare2025@gmail.com",
-    address: "1401 Ulster Street, Denver, CO 80220",
-    hours: "Mon - Fri: 9:00 AM - 6:00 PM\nSat: 10:00 AM - 4:00 PM\nSun: Closed",
-  }
+const CONTACT_INFO = {
+  name: "Wellness Health Care LLC",
+  phone: "+1 720 552 1710",
+  email: "Wellnesshealthcare2025@gmail.com",
+  address: "14291 E 4th Ave Aurora, CO 80011 Suite 7-110", 
+  hours: "Mon - Fri: 9:00 AM - 6:00 PM\nSat: 10:00 AM - 4:00 PM\nSun: Closed",
+}
+
 
   const infoCards = [
     { icon: Phone, title: "Phone", content: CONTACT_INFO.phone, note: "Call us for immediate assistance", link: `tel:${CONTACT_INFO.phone}` },
@@ -154,10 +155,16 @@ export default function ContactPage() {
             <p className="text-gray-600 dark:text-gray-300">Visit our wellness center located in Denver, Colorado.</p>
           </motion.div>
           <motion.div className="rounded-xl overflow-hidden shadow-2xl" initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, delay: 0.2 }} viewport={{ once: true }}>
-            <iframe
-              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3067.283586078228!2d-104.89623268462633!3d39.7392019794486!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x876c7f0a6b6b6b6b%3A0xf3a7b6d5b2f3a7b6!2s1401%20Ulster%20St%2C%20Denver%2C%20CO%2080220%2C%20USA!5e0!3m2!1sen!2sus!4v1695123456789!5m2!1sen!2sus"
-              width="100%" height="450" style={{ border: 0 }} allowFullScreen loading="lazy" referrerPolicy="no-referrer-when-downgrade"
-            ></iframe>
+<iframe
+  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3067.283586078228!2d-104.8310000!3d39.7295000!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x876c67f0a6b6b6b6b%3A0xf3a7b6d5b2f3a7b6!2s14291%20E%204th%20Ave%2C%20Aurora%2C%20CO%2080011!5e0!3m2!1sen!2sus!4v1699999999999!5m2!1sen!2sus"
+  width="100%"
+  height="450"
+  style={{ border: 0 }}
+  allowFullScreen
+  loading="lazy"
+  referrerPolicy="no-referrer-when-downgrade"
+/>
+
           </motion.div>
         </div>
       </section>

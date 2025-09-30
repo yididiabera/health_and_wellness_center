@@ -330,7 +330,12 @@ export default function HomePage() {
               </Button>
             </div>
             <div className="mt-10 text-teal-100 space-y-2 text-lg">
-              <p>1401 Ulster Street, Denver, CO 80220</p>
+              <p className="text-gray-300">
+  14291 E 4th Ave Aurora, CO 80011
+  <br />
+  Suite 7-110
+</p>
+
               <p>+1 720 552 1710</p>
               <p>wellnesshealthcare2025@gmail.com</p>
             </div>

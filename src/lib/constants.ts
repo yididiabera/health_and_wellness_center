@@ -106,10 +106,11 @@ export const TESTIMONIALS = [
     result: "Youthful energy restored",
   },
 ]
-
 export const CONTACT_INFO = {
   phone: "+1 720 552 1710",
   email: "Wellnesshealthcare2025@gmail.com",
-  address: " 1401 Ulster Street, Denver, CO 80220",
+  address: `14291 E 4th Ave Aurora, CO 80011
+Suite 7-110`,
   hours: "Monday - Friday: 9:00 AM - 6:00 PM\nSaturday: 10:00 AM - 4:00 PM\nSunday: Closed",
 }
+

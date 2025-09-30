@@ -131,8 +131,11 @@ export function Footer() {
               <div className="flex items-start space-x-3">
                 <MapPin className="h-5 w-5 text-teal-400 mt-0.5 flex-shrink-0" />
                 <span className="text-gray-300">
-                  1401 Ulster Street, Denver, CO 80220
-                </span>
+  14291 E 4th Ave Aurora, CO 80011
+  <br />
+  Suite 7-110
+</span>
+
               </div>
             </div>
           </div>
