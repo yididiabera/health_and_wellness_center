@@ -191,8 +191,9 @@ export default function HomePage() {
             ))}
           </div>
         </div>
-      </section>{/* ===================== Services Section ===================== */}
-<section className="py-16 md:py-20 mt-[-60px] bg-white dark:bg-gray-900 relative overflow-hidden">
+      </section>
+      {/* ===================== Services Section ===================== */}
+<section className="py-16 md:py-20 mt-[-120px] bg-white dark:bg-gray-900 relative overflow-hidden">
   {/* Background animation (subtle wave or gradient pulse) */}
   <motion.div
     className="absolute inset-0 bg-gradient-to-br from-sky-100/50 to-transparent dark:from-sky-900/20 blur-3xl"
