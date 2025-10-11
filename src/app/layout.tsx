@@ -50,7 +50,7 @@ export const metadata: Metadata = {
     siteName: "Wellness Health Care LLC",
     images: [
       {
-        url: "/logo.png",
+        url: "/favicon.png",
         width: 1200,
         height: 630,
         alt: "Wellness Health Care LLC - Holistic Wellness Services",
@@ -61,7 +61,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Wellness Health Care LLC - Your Journey to Holistic Well-being",
     description: "Discover personalized wellness solutions that nurture your mind, body, and spirit for a healthier, more balanced life.",
-    images: ["/logo.png"],
+    images: ["/favicon.png"],
     creator: "@yoditwellness",
   },
   robots: {
@@ -86,8 +86,8 @@ const jsonLd = {
   "name": "Yodit Wellness Center",
   "description": "Your Journey to Holistic Well-being Starts Here",
   "url": "https://yodit-wellness.com",
-  "logo": "https://yodit-wellness.com/logo.png",
-  "image": "https://yodit-wellness.com/logo.png",
+  "logo": "https://yodit-wellness.com/favicon.png",
+  "image": "https://yodit-wellness.com/favicon.png",
   "telephone": "(555) 123-4567",
   "email": "info@yoditwellness.com",
   "address": {
