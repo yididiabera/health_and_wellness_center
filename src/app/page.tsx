@@ -191,52 +191,85 @@ export default function HomePage() {
             ))}
           </div>
         </div>
-      </section>
-      {/* ===================== Services Section ===================== */}
-      <section className="py-24 bg-white dark:bg-gray-900">
-        <div className="container mx-auto px-6 lg:px-12">
-          <div className="text-center mb-20">
-            <motion.h2
-              className="text-4xl md:text-5xl font-bold text-gray-900 dark:text-white mb-6"
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6 }}
-              viewport={{ once: true }}
-            >
-              Our PASA Services
-            </motion.h2>
-            <motion.p
-              className="text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto mb-10"
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.2 }}
-              viewport={{ once: true }}
-            >
-              From residential care to community integration, we help individuals thrive with dignity and independence.
-            </motion.p>
-            <Button asChild size="lg" className="px-10 py-5 text-lg rounded-full shadow-xl hover:scale-110 transition-transform">
-              <Link href="/services">
-                View All Services
-                <ArrowRight className="ml-2 h-6 w-6" />
-              </Link>
-            </Button>
-          </div>
+      </section>{/* ===================== Services Section ===================== */}
+<section className="py-16 md:py-20 mt-[-60px] bg-white dark:bg-gray-900 relative overflow-hidden">
+  {/* Background animation (subtle wave or gradient pulse) */}
+  <motion.div
+    className="absolute inset-0 bg-gradient-to-br from-sky-100/50 to-transparent dark:from-sky-900/20 blur-3xl"
+    initial={{ opacity: 0 }}
+    animate={{ opacity: 1 }}
+    transition={{ duration: 2, ease: 'easeInOut' }}
+  />
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12">
-            {SERVICES.slice(0, 3).map((service, index) => (
-              <motion.div
-                key={service.id}
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: index * 0.15 }}
-                viewport={{ once: true }}
-              >
-                <ServiceCard {...service} className="rounded-3xl shadow-xl hover:shadow-3xl transition-all duration-500 transform hover:-translate-y-3" />
-              </motion.div>
-            ))}
-          </div>
-        </div>
-      </section>
+  <div className="container relative z-10 mx-auto px-6 lg:px-12">
+    <div className="text-center mb-16 md:mb-20">
+      <motion.h2
+        className="text-4xl md:text-5xl font-extrabold text-gray-900 dark:text-white mb-4 inline-block relative"
+        initial={{ opacity: 0, y: 30 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.7 }}
+        viewport={{ once: true }}
+      >
+        Our PASA Services
+        {/* Animated underline */}
+        <motion.span
+          className="absolute left-0 bottom-0 w-full h-1 bg-sky-500 rounded-full"
+          initial={{ scaleX: 0 }}
+          whileInView={{ scaleX: 1 }}
+          transition={{ duration: 0.8, ease: 'easeOut' }}
+          viewport={{ once: true }}
+          style={{ originX: 0 }}
+        />
+      </motion.h2>
+
+      <motion.p
+        className="text-lg md:text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto mt-6 mb-10"
+        initial={{ opacity: 0, y: 20 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.7, delay: 0.2 }}
+        viewport={{ once: true }}
+      >
+        From residential care to community integration, we help individuals thrive with dignity and independence.
+      </motion.p>
+
+      <motion.div
+        initial={{ opacity: 0, scale: 0.9 }}
+        whileInView={{ opacity: 1, scale: 1 }}
+        transition={{ duration: 0.6, delay: 0.3 }}
+        viewport={{ once: true }}
+      >
+        <Button
+          asChild
+          size="lg"
+          className="px-10 py-5 text-lg rounded-full shadow-xl hover:scale-110 bg-sky-500 hover:bg-sky-600 text-white transition-transform duration-300"
+        >
+          <Link href="/services">
+            View All Services
+            <ArrowRight className="ml-2 h-6 w-6" />
+          </Link>
+        </Button>
+      </motion.div>
+    </div>
+
+    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
+      {SERVICES.slice(0, 3).map((service, index) => (
+        <motion.div
+          key={service.id}
+          initial={{ opacity: 0, y: 40 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, delay: index * 0.15 }}
+          viewport={{ once: true }}
+        >
+          <ServiceCard
+            {...service}
+            className="rounded-3xl shadow-lg hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-3 border-t-4 border-sky-500"
+          />
+        </motion.div>
+      ))}
+    </div>
+  </div>
+</section>
+
 {/* ===================== Huge Image Gallery ===================== */}
 <section className="py-24 bg-gray-100 dark:bg-gray-800">
   <div className="container mx-auto px-6 lg:px-12">
