@@ -1,26 +1,25 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  output: 'export', // Enables static export (for GitHub Pages & GoDaddy)
-  trailingSlash: true, // Helps static hosting handle directories correctly
+  output: 'export',
+  trailingSlash: true,
   images: {
-    unoptimized: true, // Required for static export (no Image Optimization)
+    unoptimized: true,
   },
   eslint: {
-    ignoreDuringBuilds: true, // Skip ESLint errors during build
+    ignoreDuringBuilds: true,
   },
   typescript: {
-    ignoreBuildErrors: true, // Skip TypeScript errors during build
+    ignoreBuildErrors: true,
   },
-  // Performance and stability optimizations
   compress: true,
   poweredByHeader: false,
   generateEtags: false,
 
-  // ✅ Important: Remove basePath if previously set for GitHub Pages
+  // ✅ Use root prefix for assets (works for GitHub Pages and GoDaddy)
+  assetPrefix: '/',
+  
+  // ✅ Make sure no base path is used
   basePath: '',
-
-  // ✅ Optional but recommended: set assetPrefix for your root domain
-  assetPrefix: './', // Ensures relative paths for static assets
 };
 
 module.exports = nextConfig;
