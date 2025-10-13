@@ -66,81 +66,134 @@ export default function HomePage() {
 
   return (
     <div className="flex flex-col space-y-20">
-      {/* ===================== HERO: 2x2 grid with overlay title ===================== */}
-<section className="relative w-full h-[90vh]">
+{/* ===================== HERO: Single-Image Animated Slider ===================== */}
+<section className="relative w-full h-[90vh] overflow-hidden">
   <Swiper
-    modules={[Autoplay, Pagination, Parallax, EffectFade]}
-    autoplay={{ delay: 4200, disableOnInteraction: false }}
+    modules={[Autoplay, Pagination, EffectFade]}
+    autoplay={{ delay: 4500, disableOnInteraction: false }}
     pagination={{ clickable: true }}
+    effect="fade"
     loop
-    speed={1000}
+    speed={1200}
     className="w-full h-full"
-    parallax
   >
-    {groupedSlides.map((group, groupIndex) => (
-      <SwiperSlide key={groupIndex}>
-        <div className="w-full h-[90vh] grid grid-cols-2 grid-rows-2 gap-0">
-          {group.map((img, idx) => {
-            const v = imageVariants[idx % imageVariants.length]
-            const hoverClass = hoverClasses[idx % hoverClasses.length]
-            return (
-              <motion.div
-                key={idx}
-                initial={v.initial}
-                animate={v.animate}
-                transition={{ duration: 0.9, delay: idx * 0.15 }}
-                className="relative w-full h-full overflow-hidden"
-              >
-                <img
-                  src={img.src}
-                  loading="lazy"
-                  className={`w-full h-full object-cover transition-transform duration-700 ease-out ${hoverClass}`}
-                />
-                <div className="absolute inset-0 pointer-events-none bg-gradient-to-t from-black/20 to-transparent" />
-              </motion.div>
-            )
-          })}
-        </div>
+    {[
+      { src: "images/outdoor_community.jpg", caption: "Empowering Lives with Compassion" },
+      { src: "images/therapy.jpg", caption: "Supporting Independence & Dignity" },
+      { src: "images/group_wellness.jpg", caption: "Trusted PASA Agency in Colorado" },
+      { src: "images/charity.jpg", caption: "Caring Hearts, Meaningful Impact" },
+    ].map((slide, index) => (
+      <SwiperSlide key={index}>
+        <motion.div
+          initial={{ scale: 1.05, opacity: 0 }}
+          animate={{ scale: 1, opacity: 1 }}
+          exit={{ opacity: 0 }}
+          transition={{ duration: 1.2, ease: "easeOut" }}
+          className="relative w-full h-[90vh]"
+        >
+          {/* Background Image */}
+          <img
+            src={slide.src}
+            alt={slide.caption}
+            className="w-full h-full object-cover transition-transform duration-[3000ms] ease-in-out transform hover:scale-105"
+            loading="lazy"
+          />
 
-        {/* Centered Title + Subtitle Overlay */}
-        <div className="absolute inset-0 flex flex-col items-center justify-center text-center px-6">
-          <motion.h1
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 1 }}
-            className="text-5xl md:text-7xl font-extrabold text-white leading-tight"
-            style={{
-              textShadow:
-                "2px 2px 6px rgba(0,0,0,0.9), -2px -2px 6px rgba(0,0,0,0.7)",
-            }}
-          >
-            <span className="block">Wellness Health Care</span>
-            <span className="block">LLC</span>
-          </motion.h1>
+          {/* Dark Overlay */}
+          <div className="absolute inset-0 bg-black/40" />
 
-          <motion.p
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 1, delay: 0.4 }}
-            className="mt-6 text-lg md:text-2xl text-gray-100 max-w-2xl"
-            style={{
-              textShadow:
-                "1px 1px 4px rgba(0,0,0,0.8), -1px -1px 4px rgba(0,0,0,0)",
-            }}
-          >
-            A trusted PASA agency inspiring independence, dignity, and compassionate care across Colorado.
-          </motion.p>
-        </div>
+          {/* Centered Text */}
+          <div className="absolute inset-0 flex flex-col items-center justify-center text-center px-6">
+            <motion.h1
+              initial={{ opacity: 0, y: 40 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 1 }}
+              className="text-5xl md:text-7xl font-extrabold text-white leading-tight drop-shadow-[2px_2px_8px_rgba(0,0,0,0.9)]"
+            >
+              Wellness Health Care LLC
+            </motion.h1>
+
+            <motion.p
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 1, delay: 0.3 }}
+              className="mt-6 text-lg md:text-2xl text-gray-100 max-w-2xl leading-relaxed"
+            >
+              {slide.caption}
+            </motion.p>
+          </div>
+        </motion.div>
       </SwiperSlide>
     ))}
   </Swiper>
-</section>{/* ===================== Features Section ===================== */}
-<section className="py-10 md:py-10 bg-gradient-to-b from-gray-50 to-white dark:from-gray-900 dark:to-gray-950">
-  <div className="container mx-auto px-6 lg:px-12">
+</section>
+
+{/* ===================== PERSISTENT INFINITE CURVED SHAPE ===================== */}
+<div className="relative w-full h-[180px] overflow-hidden bg-white dark:bg-gray-950">
+  <div className="absolute bottom-0 left-0 w-[200%] h-[180px]">
+    {/* Gradient Wave (background) */}
+    <svg
+      className="absolute bottom-0 left-0 w-[200%] h-[180px] animate-wave-slow"
+      xmlns="http://www.w3.org/2000/svg"
+      viewBox="0 0 1440 320"
+      preserveAspectRatio="none"
+    >
+      <defs>
+        <linearGradient id="gradientCurve" x1="0" y1="0" x2="1" y2="1">
+          <stop offset="0%" stopColor="#14b8a6" />
+          <stop offset="50%" stopColor="#0d9488" />
+          <stop offset="100%" stopColor="#0f766e" />
+        </linearGradient>
+      </defs>
+      <path
+        fill="url(#gradientCurve)"
+        d="M0,224L60,197.3C120,171,240,117,360,96C480,75,600,85,720,122.7C840,160,960,224,1080,234.7C1200,245,1320,203,1380,181.3L1440,160L1440,320L0,320Z"
+      />
+    </svg>
+
+    {/* White Wave (foreground) */}
+    <svg
+      className="absolute bottom-0 left-0 w-[200%] h-[180px] opacity-70 animate-wave-fast"
+      xmlns="http://www.w3.org/2000/svg"
+      viewBox="0 0 1440 320"
+      preserveAspectRatio="none"
+    >
+      <path
+        fill="#ffffff"
+        fillOpacity="1"
+        d="M0,160L60,165.3C120,171,240,181,360,202.7C480,224,600,256,720,245.3C840,235,960,181,1080,154.7C1200,128,1320,128,1380,128L1440,128L1440,320L0,320Z"
+      />
+    </svg>
+  </div>
+</div>
+
+{/* ===================== CUSTOM ANIMATIONS ===================== */}
+<style jsx>{`
+  @keyframes waveScroll {
+    0% {
+      transform: translateX(0);
+    }
+    100% {
+      transform: translateX(-50%);
+    }
+  }
+
+  .animate-wave-slow {
+    animation: waveScroll 22s linear infinite;
+  }
+
+  .animate-wave-fast {
+    animation: waveScroll 14s linear infinite;
+  }
+`}</style>
+
+{/* ===================== Features Section ===================== */}
+<section className="py-14 md:py-18 bg-gradient-to-b from-gray-50 to-white dark:from-gray-900 dark:to-gray-950">
+  <div className="container mx-auto px-4 lg:px-20">
     {/* Section Header */}
-    <div className="text-center mb-12 md:mb-16">
+    <div className="text-center mb-14 md:mb-18">
       <motion.h2
-        className="text-4xl md:text-5xl font-bold text-gray-900 dark:text-white mb-4"
+        className="text-3xl md:text-5xl font-bold text-gray-900 dark:text-white mb-4"
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.6 }}
@@ -149,7 +202,7 @@ export default function HomePage() {
         Why Choose Wellness Health Care LLC?
       </motion.h2>
       <motion.p
-        className="text-lg md:text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto"
+        className="text-base md:text-lg text-gray-600 dark:text-gray-300 max-w-4xl mx-auto"
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.6, delay: 0.2 }}
@@ -160,28 +213,32 @@ export default function HomePage() {
     </div>
 
     {/* Feature Cards */}
-    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10">
+    <div className="grid grid-cols-1 md:grid-cols-1 lg:grid-cols-1 gap-10">
       {features.map((feature, index) => (
         <motion.div
           key={feature.title}
-          className="relative group p-10 rounded-3xl shadow-lg bg-white dark:bg-gray-800 border border-gray-100 dark:border-gray-700 hover:shadow-2xl transition-transform duration-500"
+          className="relative group rounded-3xl shadow-2xl bg-white dark:bg-gray-800 border border-gray-100 dark:border-gray-700 hover:shadow-3xl transition-transform duration-500"
           initial={{ opacity: 0, y: 40 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: index * 0.15 }}
           viewport={{ once: true }}
-          whileHover={{ scale: 1.05, rotateX: 5, rotateY: -5 }}
+          whileHover={{ scale: 1.02, rotateX: 3, rotateY: -3 }}
         >
           <div className="absolute inset-0 rounded-3xl bg-gradient-to-tr from-teal-400 via-teal-500 to-teal-600 opacity-0 group-hover:opacity-100 blur-lg transition duration-500"></div>
-          <div className="relative z-10 text-center">
-            <div className="inline-flex items-center justify-center w-20 h-20 rounded-full bg-teal-100 dark:bg-teal-900 mb-6 group-hover:scale-110 transition-transform duration-500">
-              <feature.icon className="h-10 w-10 text-teal-600 dark:text-teal-400" />
+          <div className="relative z-10 flex flex-col md:flex-row items-center gap-8 p-8 md:p-10">
+            <div className="flex-shrink-0">
+              <div className="inline-flex items-center justify-center w-24 h-24 rounded-full bg-teal-100 dark:bg-teal-900 group-hover:scale-110 transition-transform duration-500">
+                <feature.icon className="h-10 w-10 text-teal-600 dark:text-teal-400" />
+              </div>
             </div>
-            <h3 className="text-xl font-semibold text-gray-900 dark:text-white mb-3">
-              {feature.title}
-            </h3>
-            <p className="text-gray-600 dark:text-gray-300">
-              {feature.description}
-            </p>
+            <div className="text-center md:text-left">
+              <h3 className="text-2xl font-semibold text-gray-900 dark:text-white mb-2">
+                {feature.title}
+              </h3>
+              <p className="text-base text-gray-600 dark:text-gray-300 leading-relaxed max-w-3xl">
+                {feature.description}
+              </p>
+            </div>
           </div>
         </motion.div>
       ))}

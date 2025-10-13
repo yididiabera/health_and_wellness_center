@@ -3,7 +3,7 @@
 import * as React from "react"
 import Link from "next/link"
 import { usePathname } from "next/navigation"
-import { Menu, X, Sun, Moon } from "lucide-react"
+import { Menu, X, Sun, Moon, Facebook, Instagram, Linkedin, Twitter, Phone, Mail } from "lucide-react"
 import Image from "next/image"
 import { Button } from "./ui/button"
 import { useTheme } from "./theme-provider"
@@ -32,6 +32,71 @@ export function Navbar() {
 
   return (
     <header className="sticky top-0 z-50 w-full border-b bg-white/90 backdrop-blur-md dark:bg-gray-900/90 shadow-md transition-all">
+
+      {/* ===================== Top Info Bar ===================== */}
+      <div className="bg-teal-600 text-white text-sm">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row items-center justify-between py-2 space-y-2 md:space-y-0">
+          {/* Left: Contact Info */}
+          <div className="flex flex-col md:flex-row md:items-center md:space-x-6 text-center md:text-left">
+            <a
+              href="tel:+17205521710"
+              className="flex items-center justify-center space-x-2 hover:text-gray-100 transition-colors"
+            >
+              <Phone className="h-4 w-4" />
+              <span>+1 720 552 1710</span>
+            </a>
+            <a
+              href="mailto:Wellnesshealthcare2025@gmail.com"
+              className="flex items-center justify-center space-x-2 hover:text-gray-100 transition-colors"
+            >
+              <Mail className="h-4 w-4" />
+              <span>Wellnesshealthcare2025@gmail.com</span>
+            </a>
+          </div>
+
+          {/* Right: Social Media Links */}
+          <div className="flex space-x-4 justify-center md:justify-end">
+            <a
+              href="https://www.facebook.com/profile.php?id=61582141343241"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Facebook"
+              className="hover:text-gray-100 transition-colors"
+            >
+              <Facebook className="h-4 w-4" />
+            </a>
+            <a
+              href="https://instagram.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Instagram"
+              className="hover:text-gray-100 transition-colors"
+            >
+              <Instagram className="h-4 w-4" />
+            </a>
+            <a
+              href="https://www.linkedin.com/company/wellness-health-care-llc/"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="LinkedIn"
+              className="hover:text-gray-100 transition-colors"
+            >
+              <Linkedin className="h-4 w-4" />
+            </a>
+            <a
+              href="https://x.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Twitter/X"
+              className="hover:text-gray-100 transition-colors"
+            >
+              <Twitter className="h-4 w-4" />
+            </a>
+          </div>
+        </div>
+      </div>
+      {/* ===================== End Top Info Bar ===================== */}
+
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex h-16 items-center justify-between">
           {/* Logo + Site Name */}
